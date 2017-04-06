@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<script>
+	function makeArray () {
+		var rArr = [];
+		if (arguments.length == 1) {
+			for (i = 0 ; i < arguments[0] ; i++ ) {
+				rArr.push('');
+			}
+		} else {
+			for (i = 0 ; i < arguments.length ; i++ ) {
+				rArr.push(arguments[i]);
+			}
+		}
+		return rArr;
+	}
+	
+	// 크기가 3개인 배열을 반환, 데이터는 '''
+	var arr = makeArray(3);
+	console.log(arr);
+	
+	// 10, 2, 7을 초기값으로 설정하는 배열을 반환
+	arr = makeArray(10, 2, 7);
+	console.log(arr);
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!--
+	특정 엘리먼트 삭제하기
+	parentNode.removeChild("삭제대상");
+	
+	현재 엘리먼트의 부모 노드 찾기
+	객체.parentNode
+	
+	현재 엘리먼트 노드의 자식 노드 접근
+	firstChild, lastChild
+	
+	  
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function add() {
+		document.querySelector("div").innerHTML += "<h1>하이</h1>";
+	}
+	
+	function del() {
+		document.querySelector("h1").parentNode.removeChild(document.querySelector("h1"));
+	}
+</script>
+</head>
+<body>
+	<button onclick="add()">추가</button>
+	<button onclick="del()">삭제</button>
+	<div></div>
+</body>
+</html>

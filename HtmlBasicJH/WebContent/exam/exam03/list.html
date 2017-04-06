@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>전체조회</title>
+<style>
+#center{
+text-align: center;
+}
+#right{
+text-align: right;
+}
+#left{
+text-align: left;
+}
+</style>
+<hr>
+<h2>게시판</h2>
+<hr>
+</head>
+<body>
+	<table border="1" width=100%>
+		<tr>
+			<th width=30><input type="checkbox"></th>
+			<th width=70>번호</th>
+			<th>제목</th>
+			<th width=120>작성자</th>
+			<th width=100>작성시간</th>
+			<th width=80>조회수</th>
+		</tr>
+		
+		<tr>
+			<td width=30 id="center"><input type="checkbox" ></th>
+			<td width=70></th>
+			<td></th>
+			<td width=150></th>
+			<td width=100></th>
+			<td width=80></th>
+		</tr>
+			
+	</table>
+	
+	<br>
+	<div style="float:left;">
+	<input type="button" value="등록" onclick="location.href='insertBoard.html'">
+	<input type="button" value="수정" onclick="location.href='updateBoard.html'">
+	<input type="button" value="삭제" onclick="">
+	</div>
+	<div style="float:right;">
+	<input type="button" value="처음" onclick="">
+	<input type="button" value="이전" onclick="">
+	<input type="button" value="다음" onclick="">
+	<input type="button" value="마지막" onclick="">
+	</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!-- 
+	:first
+	:last
+	:first-child
+	:last-child
+	:nth-child(n)
+	:nth-child(even|odd)
+	:eq(n)
+	:gt(n)
+	:lt(n)
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>css selectors</title>
+
+<style type="text/css">
+	.choice {
+		margin : 5px;
+		padding: 5px;
+		border : solid #000000 thick;
+		background: orange;
+	}
+</style>
+<script src="/jquery-basic/js/jquery-3.1.0.js"></script>
+</head>
+<body>
+	<div id="p">id가 p인 DIV
+		<div id="a">id가 a인 DIV 
+			<div id="a1">id가 a인 div의 자식 DIV</div>
+		</div>
+		<div id="b" class="divClass">id가 b인 DIV<span id="b1">아이디가 b1인 span</span></div>
+<!-- 		<h1>위치 선택자 연습</h1> -->
+		<div id="c">id가 c 인 DIV
+			<a href="http://www.naver.com">id가 c인 DIV의 자식 a 태그</a>
+		</div>
+	</div>
+	
+<script>
+	// html 엘리먼트 선택
+// 	$(":first").addClass("choice");
+	
+	// div엘리먼트중 가장 처음
+// 	$("div:first").addClass("choice");
+	
+	// div엘리먼트중 가장 마지막(시작위치가젤 마지막인것)
+// 	$("div:last").addClass("choice");
+
+	// 모든 div중에 누군가의 첫번째 자식인 것
+// 	$("div:first-child").addClass("choice");
+	
+	// 모든 div중에 누군가의 마지막 자식인 것(script태그 때문에 p는 제외)
+// 	$("div:last-child").addClass("choice");
+	
+	//id가 p인 div인데 1번째 자식인 div 선택
+// 	$("div[id=p]:nth-child(1)").addClass("choice");
+	
+	//p의 자식중 첫번째 자식인 것 모두 선택
+// 	$("div[id=p] :nth-child(1)").addClass("choice");
+	
+	//p의 바로 빝의 자식중 첫번째 인 것 선택
+// 	$("div[id=p] > :nth-child(1)").addClass("choice");
+// 	$("div[id=p] > :nth-child(2)").addClass("choice");
+// 	$("div[id=p] > :nth-child(3)").addClass("choice");
+	
+// 	$("div[id=p] > div:last").addClass("choice");
+// 	$("div[id=c]").addClass("choice");
+// 	$("div[id=c]:first").addClass("choice");
+	
+	// 홀수번째 자식인 div선택
+// 	$("div:nth-child(odd)").addClass("choice");
+// 	$("div:nth-child(even)").addClass("choice");
+// 	$("div[id=p] > div:nth-child(odd)").addClass("choice");
+	
+	// eq는 같은거 gt는 큰거 lt는 작은거(위치가)
+// 	$("div[id=p] > div:eq(0)").addClass("choice");
+// 	$("div[id=p] > div:eq(1)").addClass("choice");
+// 	$("div[id=p] > div:gt(0)").addClass("choice");
+	$("div[id=p] > div:lt(1)").addClass("choice");
+
+	
+	
+</script>
+</body>
+</html>

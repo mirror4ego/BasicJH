@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상품등록</title>
+<style>
+#td {
+	text-align: center;
+}
+</style>
+
+<hr>
+<h2 align="center">상품등록</h2>
+<hr>
+</head>
+<body>
+	<br>
+	<br>
+	<table width="100%" border="1">
+		<tr>
+			<th id="td">등록카테고리</th>
+			<td><select name="big"><option value="대분류">대분류</option></select>
+				<select name="middle"><option value="중분류">중분류</option></select> 
+				<select	name="small"><option value="소분류">소분류</option></select>
+			</td>
+		</tr>
+		<tr>
+			<th id="td">상품명</th>
+			<td><input type="text"></td>
+		</tr>
+		<tr>
+			<th id="td">소비자가</th>
+			<td><input type="text" placeholder="0"> 콤마(,)없이 숫자로만 입력(보기:10000)</td>
+		</tr>
+		<tr>
+			<th id="td">부가 포인트</th>
+			<td><input type="text"> 이 상품에 부가할 마일리지포인트.</td>
+		</tr>
+		<tr>
+			<th id="td">상세설명</th>
+			<td ><textarea name="상품설명" cols="70" rows="10" placeholder="상품설명입력"></textarea></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<br>
+				<div align="center">
+					<input type="button" value="상품등록"	onclick="location.href='insert.html'" /> 
+					<input type="button" value="재작성" onclick="location.href='delete.html'" />
+				</div>
+			<br>
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>

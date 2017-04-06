@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width: 500px;
+		height: 300px;
+		border: 2px solid red;
+		font-size: 50px;
+		line-height: 300px;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+<h1>이미지를 드래그 하세요</h1>
+<img id="dropImage" width="300" height="180" draggable="true" src="pic1.jpg" />
+<div id="dropzone" 
+	ondragenter = "console.log('드랍존 들어옴');" 
+	ondragover  = "console.log('드랍존에 있는 상태'); return false;" 
+	ondragleave = "console.log('드랍존을 벗어남');" 
+	ondrop = "console.log('드랍됨');"
+>DROP ZONE</div>
+
+<script>
+	var imgObj = document.querySelector("#dropImage");
+	var divObj = document.querySelector("#dropzone");
+	var dropvalue = false;
+	
+	divObj.ondragenter = function () {
+		dropvalue = true;
+	};
+	
+	divObj.ondragleave = function () {
+		dropvalue = false;
+	}
+	
+	imgObj.addEventListener("mousedown", function () {
+		imgObj.addEventListener("mouseup", function () {
+			if (dropvalue) {
+				alert("드래그완료");
+			}
+		});
+	});
+	
+	
+</script>
+</body>
+</html>

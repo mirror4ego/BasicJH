@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Input Tag</title>
+</head>
+<body>
+<form onsubmit="return chkForm();">
+	color : <input type="color" name="co" value="#334455" />
+	<br>
+	<br>
+	<!-- 
+		value : 특정한 날짜 기준 설정
+		min : 최소 선택할 수 있는 날짜 지정
+		max : 최대 선택할 수 있는 날짜 지정
+	 -->
+	date : <input type="date" name="da"  min="2015-11-01" max="2016-09-26" value="2016-08-31" />
+	<br>
+	<br>
+	email : <input type="email" name="email" /> 
+	<br>
+	<br>
+	month : <input type="month" name="mo" />
+	<br>
+	<br>
+	week : <input type="week" name="we"  />
+	<br>
+	<br>
+	number :  <input type="number" name="number" min="0" max="100" step="10" /> 
+	<br>
+	<br>
+	range :  <input type="range" name="range" min="0" max="100" step="2" value="0" /> 
+	<br>
+	<br>
+	pattern : <input type="password" name="pw" required="required" pattern=".{6,}" title="6자 이상 적으세요" />
+	<br>
+	<br>
+	<input type="submit" value="확인" />
+</form>
+<script type="text/javascript">
+	function chkForm() {
+		/*
+		var pw = document.querySelector("[name=pw]");
+		if (pw.value == "") {
+			alert("패스워드를 입력하세요");
+			return false;
+		}
+		if (pw.value.length < 6) {
+			alert("패스워드는 6자리 이상 입력해 주세요");
+			return false;
+		}
+		alert(document.querySelector("[name=co]").value);
+		*/
+		return false;
+	}
+	
+	document.querySelector("[name=range]").addEventListener("change", function (){
+		document.querySelector("[name=number]").value = document.querySelector("[name=range]").value
+	});
+	document.querySelector("[name=number]").addEventListener("change", function (){
+		document.querySelector("[name=range]").value = document.querySelector("[name=number]").value
+	});
+</script>
+</body>
+</html>

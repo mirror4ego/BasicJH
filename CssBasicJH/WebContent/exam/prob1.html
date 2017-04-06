@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+	.container {
+		border-bottom: 3px solid gray;
+		width: 1000px;
+		height: 280px;
+		margin: 20px;
+	}
+	
+	.button {
+		width: 1000px;
+		margin: 20px;
+	}
+	
+	.container #a {
+		width: 200px;
+		background: #dfdfdf;
+		margin: 3px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		float: left;
+	}
+	
+	.container div {
+		margin: 5px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		float: left;
+	}
+	
+	.pass { clear: both; }
+	.pass2 { clear: both; }
+	.name { clear: both; }
+	.tel { clear: both; }
+	.addr { clear: both; }
+	
+	input[type="text"], [type="password"] {
+		border-top: none;
+		border-right: none;
+		border-left: none;
+		border-bottom: 2px solid black;
+	}
+	
+	.submit, .reset {
+		margin: 0 auto;
+	}
+	
+</style>
+</head>
+<body>
+<h1>회원 정보 입력하기</h1>
+<hr>
+<form>
+<div class="container">
+	<div id="a" class="id">아이디</div><div><input type="text" /></div>
+	<div id="a" class="pass">비밀번호</div><div><input type="password" /></div>
+	<div id="a" class="pass2">비밀번호 확인</div><div><input type="password" /></div>
+	<div id="a" class="name">이름</div><div><input type="text" /></div>
+	<div id="a" class="tel">전화번호</div><div><input type="text" />(숫자만 입력하세요)</div>
+	<div id="a" class="addr">주소</div><div><input type="text" size="50"/></div>
+</div>
+<div class="button">
+	<input class="submit" type="submit" value="등록하기"/>
+	<input class="reset" type="reset" value="새로쓰기"/>
+</div>
+</form>
+</body>
+</html>

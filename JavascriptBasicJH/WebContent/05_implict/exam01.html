@@ -1,0 +1,22 @@
+<!-- 
+	자바스크립트를 활용한 패키지 형태 만들기
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 패키지</title>
+</head>
+<body>
+<script>
+	var mlec = {};
+	mlec.java86 = {};
+	mlec.java86.Member = function (id, pass) {
+		this.id = id;
+		this.pass = pass;
+	}
+	
+	var mem = new mlec.java86.Member("aaa", "1234");
+</script>
+</body>
+</html>

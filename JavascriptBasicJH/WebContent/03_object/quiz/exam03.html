@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+div {
+	font-size: 30px;
+}
+	.dp{
+		float: left;
+		margin: 5px;
+		width: 400px; height: 50px;
+		border: 2px solid black;
+		text-align: left;
+	}
+	.bt {
+		width: 500px; height: 500px;
+		border: 2px solid black;
+		text-align: center;
+	}
+	
+	.bt1 {
+		float: left;
+		width: 100px; height: 50px;
+		border: 2px solid black;
+		margin: 5px;
+	}
+	
+	.bt2 {
+		float: left;
+		width: 200px; height: 50px;
+		border: 2px solid black;
+		margin: 5px;
+	}
+	
+	.bt .bt1:hover, .bt2:hover {
+		background-color: black;
+		color: white;
+	}
+	
+</style>
+</head>
+<div class="bt">
+	<div class="dp" id="display"></div>
+	<div class="bt1" id="7" onclick="input(7)">7</div>
+	<div class="bt1" id="8" onclick="input(8)">8</div>
+	<div class="bt1" id="9" onclick="input(9)">9</div>
+	<div class="bt1" id="div" onclick="input('div')">/</div>
+	<div class="bt1" id="4" onclick="input(4)">4</div>
+	<div class="bt1" id="5" onclick="input(5)">5</div>
+	<div class="bt1" id="6" onclick="input(6)">6</div>
+	<div class="bt1" id="multi" onclick="input('multi')">*</div>
+	<div class="bt1" id="1" onclick="input(1)">1</div>
+	<div class="bt1" id="2" onclick="input(2)">2</div>
+	<div class="bt1" id="3" onclick="input(3)">3</div>
+	<div class="bt1" id="minus" onclick="input('minus')">-</div>
+	<div class="bt1" id="0" onclick="input(0)">0</div>
+	<div class="bt1" id="dot" onclick="input('dot')">.</div>
+	<div class="bt1" id="plus" onclick="input('plus')">+</div>
+	<div class="bt1" id="mod" onclick="input('mod')">%</div>
+	<div class="bt2" id="cal" onclick="cal()">=</div>
+	<div class="bt2" id="clr" onclick="clr()">clear</div>
+</div>
+
+
+<script>
+function input(id) {
+	var display = document.getElementById("display");
+	display.innerHTML += document.getElementById(id).innerHTML;
+}
+
+function clr() {
+	document.getElementById("display").innerHTML = "";
+}
+
+function cal() {
+	result = document.getElementById("display").innerHTML
+	document.getElementById("display").innerHTML = eval(result);
+}
+</script>
+</body>
+</html>

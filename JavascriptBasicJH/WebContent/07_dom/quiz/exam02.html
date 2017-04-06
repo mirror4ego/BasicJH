@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var count = 0;
+	function adddiv() {
+		count++;
+		var good = document.getElementById("good");
+		good.innerHTML += "<div id='d"+count+"'>추가된 DIV id : child_"+count+"<button onclick='deldiv(" + count +")'>삭제</button><br></div>" 	
+	}
+	
+	function deldiv(id) {
+		document.querySelector("#d"+id).parentNode.removeChild(document.querySelector("#d"+id));
+	}
+</script>
+</head>
+<body>
+<button onclick="adddiv()">추가</button>
+<div id="good"></div>
+</body>
+</html>

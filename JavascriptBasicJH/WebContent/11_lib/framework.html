@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="framework.js"></script>
+</head>
+<body>
+	<h1>라이브러리 만들기</h1>
+	<div id="msg">메시지 출력</div>
+	<h1 class="cMsg">class 속성 접근1</h1>
+	<h1 class="cMsg">class 속성 접근2</h1>
+	<input type="text" id="hobby1" name="hobby" value="기본값"/><br>
+	<div id="msg_list"></div>
+	<button id="btn">클릭</button>
+
+<script>
+
+// 	이벤트
+// 	<button id="btn" onclick="doAction()">클릭</button>
+
+// 	var btn = document.querySelector("#btn");
+// 	btn.onclick = function () {};
+// 	<button id="btn">클릭</button>
+	
+	var btn = document.querySelector("#btn");
+// 	btn.addEventListener("click", function() {}, true);
+
+	$("#btn").on("click", function () {alert("버튼")});
+
+
+
+// 	var msgList = document.querySelector("#msg_list");
+	
+// 	var subDiv = document.createElement("div");
+// 	msgList.appendChild(subDiv);
+	
+// 	$("#msg_list").appendChild($("<div>").html("<h1>테스트</h1>"));
+// 	$("#msg_list").append($("<div>").html("<h1>테스트</h1>"))
+	
+// 	$("<div>")
+
+
+// 	$("#msg").style["border"] = "1px solid tomato";
+// 	console.log($("#msg").style["border"]);
+	
+// 	$("#msg").css("border", "1px solid tomato");
+// 	alert($("#msg").css("border"));
+	
+// 	$("#msg").css("border", "1px solid tomato");
+// 	$("#msg").css("color", "skyblue");
+// 	$("#msg").css("background", "yellow");
+	
+// 	$("#msg").css({"border":"1px solid tomato",
+// 					"color": "skyblue",
+// 					"background": "yellow"})
+	
+	
+	
+	var msg = $("#msg");
+// 	msg.setAttribute("data-count", "100");
+
+// 	alert(msg.getAttribute("data-count"));
+	
+// 	alert(msg.attr("data-count", "100").attr("data-count"));
+// 	alert(msg.attr("data-count"));
+		
+// 	console.log(msg.attr({"data-count": "100", "data-remCnt": "100"}));
+	
+// 	alert($("#hobby1").val());
+// 	alert($("#hobby1").val("good").val());
+
+// 	var msg = document.querySelector("#msg");
+// 	var msg = $("#msg");
+// 	msg.text("<h1>변경</h1>");
+// 	msg.innerText = "<h1>변경</h1>";
+	
+	
+// 	msg.innerHTML = "<h2>변경</h2>";
+// 	alert(msg.innerHTML);
+	
+// 	alert(msg.html("<h1>변경</h1>").html());
+
+
+	
+	
+// 	alert($(".cMsg").html());
+// 	alert($(".cMsg").html("요소가 여러개인 경우"));
+	
+	// window.onload 대체하기
+// 	$(function () {
+// 		var msg = document.querySelector("#msg");
+// 		var msg = $("#msg");
+// 		alert(msg.innerHTML);
+// 		alert(msg.html());
+// 		msg.html("framework 라이브러리를 통한 변경");
+// 	});
+</script>
+</body>
+</html>

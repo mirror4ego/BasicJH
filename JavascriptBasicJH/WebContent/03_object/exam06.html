@@ -1,0 +1,30 @@
+<!-- 
+	객체 비교하기
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	// true
+	var i = 1;
+	var j = "1";
+	console.log(i == j);
+	
+	// false : 왜냐하면 객체는 주소값을 가지고 있으므로 내용이 같아도 주소가 달라서 서로 다른것이다.
+	var iObj = { count: 1 };
+	var jObj = { count: 1 };
+	console.log(iObj == jObj);
+	
+	var kObj = jObj;
+	console.log(kObj == jObj);
+	
+	kObj.count = 1000;
+	console.log(kObj);
+	console.log(jObj);
+</script>
+</body>
+</html>

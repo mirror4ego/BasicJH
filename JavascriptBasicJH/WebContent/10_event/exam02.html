@@ -1,0 +1,48 @@
+<!-- 
+	이벤트 객체
+	: 이벤트가 발생했을때 호출되는 이벤트 콜백함수(리스너함수)에 전달되는 객체로 발생한 이벤트에 대한 정보를 담고 있다.
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	button {
+		width: 200px;
+		height: 100px;
+		color: white;
+		background: tomato;
+		border: 2px solid black;
+		font-size: 25px;
+	}
+</style>
+</head>
+<body>
+	<button>1번 버튼</button>
+	<button>2번 버튼</button>
+	
+	<script>
+		var btnArr = document.querySelectorAll("button");
+		for (var i = 0; i < btnArr.length; i++) {
+			btnArr[i].onclick = function (e) {
+				// this = btnArr[i]
+				alert(this.innerHTML); 
+				console.dir(e);
+				
+				// 클릭 이벤트가 발생된 대상 객체(버튼)
+				var obj = e.target;
+				console.log(obj.innerHTML);
+				// 이벤트가 발생한 대상 객체의 좌표
+				console.log(obj.offsetLeft, obj.offsetTop);
+				// 이벤트가 발생한 좌표와 대상 객체와의 좌표 차이				
+				console.log(e.offsetX, e.offsetY);
+				// 이벤트가 발생한 좌표와 웹브라우져와의 거리
+				console.log(e.clientX, e.clientY);
+				// 이벤트가 발생한 좌표를 모니터 화면을 기준으로 찍어줌
+				console.log(e.screenX, e.screenY);
+			}
+		}
+	</script>
+</body>
+</html>

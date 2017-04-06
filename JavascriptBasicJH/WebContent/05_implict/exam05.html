@@ -1,0 +1,34 @@
+<!-- 
+	Date
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<script>
+	var d1 = new Date();
+	console.log(d1.toLocaleDateString());
+	
+	var d2 = new Date(1000);
+	console.log(d2.toLocaleDateString());
+	
+	var d3 = new Date(2016, 7, 20);
+	console.log(d3.toLocaleDateString());
+	
+	console.log(d3.getFullYear());
+	console.log(d3.getMonth()+1); // 월 0~11
+	console.log(d3.getDate());
+	console.log(d3.getDay()); // 요일 0~6
+	console.log(d3.getTime()); // 1970년 1월 1일부터 흐른 시간
+	
+	var currentDate = new Date();
+	var checkDate = new Date(2016, 5, 10);
+	var bDate = Math.floor((currentDate.getTime() - checkDate.getTime()) / (1000 * 60 * 60 * 24));
+	console.log(bDate + "일차이일차이");
+	
+</script>
+</body>
+</html>

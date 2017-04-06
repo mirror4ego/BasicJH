@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+	div {
+		width: 100%;
+		margin: 0 auto;
+	}
+	button {
+		width: 200px; height: 100px;
+		background-color: orange;
+		font-size: 20px;
+		
+	}
+</style>
+</head>
+<body>
+<div>
+<button onclick="showTime()">시작</button>
+<button onclick="stopTime()">정지</button>
+<h1 id="time"></h1>
+</div>
+<script>
+
+	var id;
+	function showTime() {
+		var currentDate = new Date();
+		var time = document.getElementById("time");
+		time.innerHTML = currentDate.toLocaleTimeString();
+		id = setTimeout(showTime, 10);
+	}
+	
+	function stopTime() {
+		clearTimeout(id);
+	}
+	
+	showTime();
+	
+	
+	
+	
+	
+</script>
+
+</body>
+</html>

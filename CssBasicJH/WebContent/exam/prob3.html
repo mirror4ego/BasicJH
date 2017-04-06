@@ -1,0 +1,43 @@
+<html>
+<head>
+<title> float 변경 </title>
+<meta charset="utf-8" />
+<style type="text/css">
+	div {
+		box-sizing: border-box;
+		width: 410px; height: 310px;
+		border: 5px solid skyblue;
+		margin: 10px;
+		float: left;
+	}
+	
+	.div_clear {
+		clear: both;
+		float: left;
+	}
+	
+	img {
+		width: 400; height:300;
+		opacity: 0.1;
+	}
+	
+	img:hover {
+		opacity: 1;
+	}
+	
+	#d1 {
+		padding-top : 50px;
+		font-size: 30px;
+		font-weight: bold;
+		background: orange;
+		text-align: center;
+	} 
+	
+</style>
+<body>
+	<div id="d1">연예인 누구</div>
+	<div id="d2"><img src="../images/dog.jpg" /></div>
+	<div class="div_clear"><img src="../images/dog.jpg" /></div>
+	<div><img src="../images/dog.jpg" /></div>
+</body>
+</html>

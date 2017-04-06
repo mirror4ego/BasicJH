@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="../framework.js">
+</script>
+</head>
+<body>
+<button id="add">추가</button><button id="del">삭제</button>
+<div id="display">
+</div>
+<script>
+var count=0;
+var dis;
+
+$("#add").click(function (){
+	if (count<3){
+		count++;
+		$("#display").html($("#display").html() + "<div id='d"+count+"'>코드값:<input type='text' id='code"+count+"'><input type='text' id='result"+count+"'></div>")
+		for (var i = 1; i < count+1; i++) {
+			$("#code"+i).keyup(function (e){
+					$.ajax({
+						url: "/javascript-basic/quiz03?code="+e.target.val(),
+						dataType: "text",
+						success: function (result) {
+							$("#result"+e.target.id.charAt(4)).val(result);
+						}
+					});	
+			});
+		}
+	} else {
+		alert("3개까지 생성가능");
+	}
+});
+
+$("#del").click(function (){
+	if (count > 1) {
+		$("#d"+count).parentNode.removeChild($("#d"+count));
+		count--;
+	} else {
+		alert("더이상 삭제불가");	
+	}
+});
+
+
+</script>
+</body>
+</html>

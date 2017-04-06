@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="patternLock.css"  rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="patternLock.js"></script>
+<script>
+$(document).ready(function () {
+	lock = new PatternLock('#patternContainer');
+	$("#confirm").click(function () {
+		var patVal = lock.getPattern()
+		alert(patVal);
+	});
+	$("#reset").click(function () {
+		lock.reset();
+	});
+	$("#lock").click(function () {
+		lock.disable();
+	});
+	$("#unlock").click(function () {
+		lock.enable();
+	});
+	
+	$('#patternContainer').mouseup(function () {
+		var patVal = lock.getPattern()
+		alert(patVal);
+	});
+});
+</script>
+</head>
+<body>
+	<div id="patternContainer"></div>
+	<input type="button" id="confirm" value="확인" />
+	<input type="button" id="reset" value="초기화" />
+	<input type="button" id="lock" value="패턴잠금" />
+	<input type="button" id="unlock" value="패턴해제" />
+	<br />
+</body>
+</html>

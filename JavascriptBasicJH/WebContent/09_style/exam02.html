@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div { background: #334455; }
+</style>
+</head>
+<body>
+	<div style="width: 200px; height: 200px">
+		<p>DIV CSS</p>
+	</div>
+	<script>
+		var divObj = document.querySelector("div")
+		console.log(divObj.style.width);	
+		console.log(divObj.style.height);	
+		console.log(divObj.style.background);
+		
+		// 기본 CSS벨류값 가져오는 코드
+		var backVal = document.defaultView.getComputedStyle(divObj, null).getPropertyValue("background");
+		console.log(backVal);
+	</script>
+
+</body>
+</html>

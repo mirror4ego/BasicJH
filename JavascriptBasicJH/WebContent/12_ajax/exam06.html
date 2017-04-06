@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="framework.js"></script>
+</head>
+<body>
+	<h2>Json Data 처리</h2>
+	<hr />
+	<textarea rows="10" cols="80" id="debug"></textarea>
+	<br>
+	<button id="clearBtn">초기화</button>
+	<button id="sendBtn">전송</button>
+	
+<script>
+	$("#clearBtn").click(function() {
+		$("#debug").val(" ");
+	});		
+	
+	$("#sendBtn").click(function() {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					// 결과를 텍스트로 받기
+// 					var result = xhr.responseText;
+					// 결과를  json 파싱 객체로 받기
+					var result = JSON.parse(xhr.responseText);
+					$("#debug").val("회원 : " + result.length + "\n");
+					for (var i = 0; i < result.length; i++) {
+						var m = result[i];
+						$("#debug").val($("#debug").val() + m.name + ", " + m.age + "\n");
+					}
+				}
+			}
+		};
+		
+		xhr.open("GET", "/javascript-basic/exam06", true);
+		xhr.send(null);
+	});		
+	
+</script>
+</body>
+</html>

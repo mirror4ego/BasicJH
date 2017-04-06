@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+	#cube {
+		position: relative;
+		width:200px; height:200px;
+		left: 200px; top: 200px;
+		
+		/* 자식의 3차원 속성을 지원 */
+		transform-style: preserve-3d;
+		
+		/* 동작할 에니메이션 이름 */
+		animation-name: mycube;
+		
+		/* 에니메이션 지속시간 */
+		animation-duration: 1s;
+		
+		/* 에니메이션 반복 횟수 */
+        animation-iteration-count: infinite;
+	}
+	
+	#cube > div {
+		position: absolute;
+		left: 0px; top: 0px;
+		width:200px; height:200px;
+		font-size: 40px;
+		text-align: center;
+		line-height: 200px;
+	} 
+			
+	#i1 { background: gray; transform: rotateY(0deg) translateZ(100px);}		
+	#i2 { background: skyblue; transform: rotateY(180deg) translateZ(100px);}		
+	#i3 { background: tomato; transform: rotateX(90deg) translateZ(100px); }		
+	#i4 { background: hotpink; transform: rotateX(270deg) translateZ(100px); }		
+	#i5 { background: crimson; transform: rotateY(90deg) translateZ(100px); }		
+	#i6 { background: green; transform: rotateY(270deg) translateZ(100px);}
+	
+	@keyframes mycube {
+		from { transform: rotateX(0deg) rotateY(0deg); }
+		to { transform: rotateX(360deg) rotateY(360deg); }
+	}
+	
+</style>
+</head>
+<body>
+	<h1>큐브</h1>
+	<div id="cube">
+		<div id="i1">1</div>
+		<div id="i2">2</div>
+		<div id="i3">3</div>
+		<div id="i4">4</div>
+		<div id="i5">5</div>
+		<div id="i6">6</div>
+	</div>
+
+</body>
+</html>

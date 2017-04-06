@@ -1,0 +1,38 @@
+<!-- 
+	엘리먼트에 속성 추가하기
+	
+	객체.속성 = 값;
+	사용자 정의 속성은 추가할 수 없다.
+	
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function doAdd() {
+		var pList = document.getElementById("pList");
+		
+		// <img />
+		var imgObj = document.createElement("img");
+		
+		// 속성 추가
+		imgObj.src = "dog.jpg";
+		imgObj.width = "200";
+		imgObj.height = "150";
+		
+		// 사용자 정의 속성(추가가 안됨)
+		imgObj.msg = "사용자 정의 속성";
+		
+		pList.appendChild(imgObj);
+				
+	}
+</script>
+</head>
+<body>
+	<button onclick="doAdd()">추가</button>
+	<div id="pList"></div>
+</body>
+</html>

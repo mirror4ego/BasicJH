@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form</title>
+</head>
+<body>
+	<h2>폼 연습</h2>
+<!--
+ 	form : 사용자의 입력 내용을 서버로 전송하기 위해서 사용
+	action : 폼의 내용을 보낼 서버의 처리 페이지 주소	
+	method : 요청방식(get/post)
+	name : 
+	enctype : 사용자 입력 데이터중에 파일이 있을 경우 파일 업로드 기능 관련 속성
+	
+	1. 서버로 데이터를 전송하기 위해서는 name 속성을 활용해야 함
+	2. radio, checkbox의 경우는 value 속성을 설정해야만 선택된 항목이 누군지 판단할 수 있음
+-->
+	<form action="데이터 처리 페이지 주소" method="get" enctype="multipart/form-data">
+	<!--
+		readonly : 읽기만 가능, 쓰기 불가능
+		disabled : 해당 입력항목을 사용하지 않는다.
+				       서버로 전송되지 않는다.
+		
+		
+	 	placeholder : 사용자의 입력창에 기본 출력할 내용
+	 	size : 창의 크기 조절
+	 -->
+	ID :  <input type="text" name="userID" size="30" placeholder="입력하세요"><br>
+	ID(readonly) :  <input type="text" name="userID" size="30" readonly placeholder="입력하세요"><br>
+	ID(disabled) :  <input type="text" name="userID" size="30" disabled placeholder="입력하세요"><br>
+	PW : <input type="password" name="pw"><br>
+
+	
+<!-- 	
+	라디오 타입은 하나만 선택하기 위해서는 name 속성을 이용함
+	checked : 체크상태로 화면에 띄우기	
+ -->
+	radio : <input type="radio" name="sms" value="Y" checked/> 수신
+	        <input type="radio" name="sms" value="N"/> 수신하지 않음<br>
+<!-- 	
+	체크박스
+	checked : 체크상태로 화면에 띄우기	
+ -->
+	checkbox : <input type="checkbox" name="hobby" value="climbing" />등산
+			   <input type="checkbox" naem="hobby" value="riding" checked/>라이딩<br>
+			   
+	file : <input type="file" /><br>
+	
+<!-- 	
+	셀렉트박스
+	selected : 선택상태로띄우기
+ -->
+	select : <select name="language">
+		<option value="c">C</option>
+		<option value="java" selected>JAVA</option>
+		<option value="SQL">SQL</option>
+	</select>
+	<br>
+	
+<!-- 	
+	텍스트에어리어
+	rows : 여러줄의 입력 지정
+	cols : 한줄에 입력될 글자수 지정
+	placeholder : 사용자의 입력창에 기본 출력할 내용
+	공백도 인식한다
+ -->
+	textarea <br><textarea name="self" cols="70" rows="10" placeholder="입력하세요"></textarea><br>
+	textarea <br><textarea name="self" cols="70" rows="10">여러줄의 내용을 입력하세요</textarea><br>
+	
+<!-- 	버튼에 label을 설정하기 위해서 value 속성을 사용 -->
+	button : <input type="button" value="눌러봐" /><br>
+	submit : <input type="submit" value="등록" /><br>
+	reset : <input type="reset" value="재입력" /><br>
+	hidden : <input type="hidden" /><br>
+	
+	<button type="button">눌러봐</button><br>
+	<button type="submit">등록</button><br>
+	<button type="reset">재입력</button><br>
+	
+
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<video id="myVideo" width="720" height="480" controls="controls" poster="pic1.jpg" loop="loop" autoplay="autoplay">
+	<source src="Naruto.mp4">
+</video>
+	<div>
+		<input type="range" id="playBar" style="width: 720px"><br>
+		<button id="playBtn">재생</button>
+		<span id="cTime"></span>
+		<canvas id="myCanvas" width="300" height="5" style="border: 1px solid blue;"></canvas>
+		<input type="checkbox" id="mute"> mute
+		<input type="range" id="volume" min="0" max="1" step="0.1" value="0.5">
+		<button id="beforeV">이전</button>
+		<button id="afterV">다음</button>
+		<button id="replay">다시시작</button>
+		<button id="fullscreen">전체화면</button>
+	</div>
+
+	<script>
+		var cTime = document.querySelector("#cTime");
+		var video = document.querySelector("#myVideo");
+		var playBtn = document.querySelector("#playBtn");
+		var muteChk = document.querySelector("#mute");
+		var volume = document.querySelector("#volume");
+		var canvas = document.querySelector("#myCanvas");
+		var playbar = document.querySelector("#playBar");
+		var replay = document.querySelector("#replay");
+		var afterV = document.querySelector("#afterV");
+		var beforeV = document.querySelector("#beforeV");
+		var fs = document.querySelector("#fullscreen");
+		
+		function showTime() {
+			var currentTime = parseInt(video.currentTime);
+			var duration = parseInt(video.duration);
+			var time = parseInt(currentTime / 60) + ":" + pad(currentTime % 60);
+			var playTime = parseInt(duration / 60) + ":" + pad(duration % 60);
+			cTime.innerHTML = time + "/" + playTime;
+			
+			
+			// 캔버스에 진행률 표시하기
+			var cWidth = Math.round(currentTime) / duration * canvas.clientWidth;
+			var ctx = canvas.getContext("2d");
+			ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+			ctx.fillStyle = "tomato";
+			if (cWidth > 0) {
+				ctx.fillRect(0, 0, cWidth, canvas.clientHeight);
+			}
+			
+			// dd
+			playbar.setAttribute("max", duration);
+			playbar.value = video.currentTime;
+			
+			if (video.paused) {
+				playBtn.innerHTML = "재생";
+			} else {
+				playBtn.innerHTML = "정지";
+			}
+
+		};
+		
+		function pad(time) {
+			return time < 10 ? "0" + time : time;
+		};
+		
+		function toggleVideo () {
+			if (video.paused) {
+				video.play();
+			} else {
+				video.pause();
+			}
+		}
+		
+		function toggleMute () {
+			video.muted = !video.muted;
+			if (video.muted) {
+				volume.value = 0;
+			} else {
+				volume.value = video.volume;
+			}
+		}
+		
+		function controlVolume () {
+			video.volume = volume.value;
+			if (volume.value == 0) {
+				muteChk.checked = true;
+			} else {
+				muteChk.checked = false;
+			}
+		}
+		
+		function controlPlaytime (e) {
+			var duration = parseInt(video.duration);
+			video.currentTime = e.offsetX / canvas.clientWidth * duration;
+		}
+		
+		function ctrlPlayBar () {
+			var duration = parseInt(video.duration);
+			playbar.setAttribute("max", duration);
+			video.currentTime = playbar.value;
+		}
+		
+		function replayVideo () {
+			video.currentTime = 0;
+			video.play();
+		}
+		
+		function afterVideo () {
+			video.currentTime += 10;
+		}
+		
+		function beforeVideo () {
+			video.currentTime -= 10;
+		}
+		
+		function fullscreen () {
+		    if (video.requestFullscreen) {
+		    	video.requestFullscreen();
+		    } else if (video.mozRequestFullScreen) {
+		    	video.mozRequestFullScreen();
+		    } else if (video.webkitRequestFullscreen) {
+		    	video.webkitRequestFullscreen();
+		    } else if(video.msRequestFullscreen){
+		    	video.msRequestFullscreen();
+		    }
+		};
+		
+		fs.addEventListener("click", fullscreen);
+		afterV.addEventListener("click", afterVideo);
+		beforeV.addEventListener("click", beforeVideo);
+		replay.addEventListener("click", replayVideo)
+		playbar.addEventListener("change", ctrlPlayBar)
+		canvas.addEventListener("click", controlPlaytime);
+		volume.addEventListener("change", controlVolume);
+		video.addEventListener("timeupdate", showTime);
+		playBtn.addEventListener("click", toggleVideo);
+		muteChk.addEventListener("click", toggleMute);
+	</script>
+
+</body>
+</html>

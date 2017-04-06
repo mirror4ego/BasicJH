@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Quiz01DAO">
+	<resultMap id="quiz01Map" type="quiz01">
+		<result column="reg_date" property="regDate"></result>
+	</resultMap>
+	
+	<select id="selectList" resultMap="quiz01Map">
+		select *
+		from (select * from quiz01 order by idx desc)
+		where rownum <![CDATA[<]]> 46
+	</select>
+	
+	
+</mapper>

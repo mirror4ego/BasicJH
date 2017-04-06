@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <style>
+		div {
+/* 			border: 1px solid black; */
+		}
+		
+        button {
+        
+		}
+		
+		input[type=text] {
+			width: 50px;
+			text-align: center;
+		}
+		
+		.menu {
+		 	width:900px;
+		 	height: 30px;
+			margin: 10px auto;
+			
+		}
+		
+		.leftMenu {
+			float: left;
+		}
+		.rightMenu {
+			float: right;
+		}
+		
+        .animation_canvas  {
+	        overflow:hidden;
+            position:relative;           
+            width:600px; height:400px;
+            margin: 0 auto;
+        }
+        
+        .slider_panel { width:3600px; position:relative; }
+        
+        .slider_image { float:left; width:600px; height:400px; }
+        
+        .sumnail {
+        	position: relative;
+        	line-height: 140px;
+        	width: 700px; height: 140px;
+        	border: 1px solid black;
+        	margin: 10px auto;
+        }
+        
+        .sumnail button {
+        	float: left;
+        	margin: 0 auto;
+        }
+        
+        
+        .sumnail_canvas {
+        	float: left;
+         	overflow:hidden;
+            width:600px; height:120px;
+            position:relative;     
+            margin: 0 auto;
+        }
+        
+        .sumnail_panel { 
+	        width: 1200px;
+	        position:relative;  
+        }
+        
+        .sumnail_panel div {
+        	height: 120px;
+        	width: 600px;
+        	float:left;
+        }
+        
+        .sumnail_image { float:left; width:100px; height:100px; margin: 5px; }
+    
+		
+    </style>
+<script src="/jquery-basic/js/jquery-3.1.0.js"></script>
+</head>
+<body>
+    <h3>슬라이드 쇼</h3>
+    <br>
+    <div class="menu">
+    	<div class="leftMenu">
+    	슬라이드쇼 :
+    	<select class="showinterval">
+    		<option value=1>1초</option>
+    		<option value=2>2초</option>
+    		<option value=3>3초</option>
+    	</select>
+    	<a class="slide_show_start">시작</a>
+    	<a class="slide_show_stop">중지</a> 
+    	크기 : 
+    	<a class="view_smaller">축소</a>
+    	<a class="view_default">기본크기</a>
+    	<a class="view_bigger">확대</a>
+    	</div>
+    	<div class="rightMenu">
+	    <button class="first_btn">◀◀</button>
+    	<button class="pre_btn">◀</button>
+    	<input type="text">
+	    <button class="next_btn">▶</button>
+	    <button class="last_btn">▶▶</button>
+    	</div>
+    </div>
+    
+    <div class="animation_canvas">
+        <div class="slider_panel">
+            <img src="Desert.jpg" class="slider_image"/>
+            <img src="Hydrangeas.jpg" class="slider_image"/>
+            <img src="Jellyfish.jpg" class="slider_image"/>
+            <img src="Koala.jpg" class="slider_image"/>
+            <img src="Lighthouse.jpg" class="slider_image"/>
+            <img src="movie_image.jpg" class="slider_image"/>
+        </div>
+    </div>
+    
+    <div class="sumnail">
+    <button class="pre_btn">◀</button>
+    <div class="sumnail_canvas">
+		<div class="sumnail_panel">
+		    <div class="sumnail_bar1">
+			    <img src="Desert.jpg" class="sumnail_image"/>
+		        <img src="Hydrangeas.jpg" class="sumnail_image"/>
+		        <img src="Jellyfish.jpg" class="sumnail_image"/>
+		        <img src="Koala.jpg" class="sumnail_image"/>
+		        <img src="Lighthouse.jpg" class="sumnail_image"/>
+		    </div>
+		    <div class="sumnail_bar2">
+		        <img src="movie_image.jpg" class="sumnail_image"/>
+		    </div>
+	    </div>
+	 </div>
+	<button class="next_btn">▶</button>
+	 </div>
+	
+	  
+</body>
+
+<script>
+	var imgCnt = $(".animation_canvas img").length - 1;
+	var index = 0;
+	var page = 0;
+	var intervalObj;
+	displayIdx();
+	selectImg();
+	
+	function displayIdx() {
+		$("input[type=text]").val(index+1+"/"+eval(imgCnt+1));
+	}
+	
+	function moveSlider(index) {
+		var move = -(index * 600);
+		$('.slider_panel').animate({left: move}, 'slow');
+	}
+	
+	function movePage(page) {
+		var move = -(page * 600);
+		$('.sumnail_panel').animate({left: move}, 'slow');
+	}
+	
+	function selectImg() {
+		$('.sumnail_panel img').css("border", "none");
+		$('.sumnail_panel img:eq('+index+')').css("border", "2px solid red");
+	}
+	
+	// 슬라이드쇼
+	$(".slide_show_start").click(function () {
+		intervalObj = setInterval(function () {
+			if (index == imgCnt) index = 0;
+			else index++;
+			displayIdx()
+			moveSlider(index);
+		}, $(".showinterval").val()*1000)
+	});
+	
+	$(".slide_show_stop").click(function () {
+		clearInterval(intervalObj);
+	})
+	
+	// 이미지
+	$(".view_default").click(function () {
+		$(".slider_image").css({
+			"width" : "600px"
+		})
+	})
+	
+	$(".view_bigger").click(function () {
+		$(".slider_image").css({
+			"width" : "600px"
+		})
+	})
+	
+	$(".view_smaller").click(function () {
+		$(".slider_image").css({
+			"width" : "600px"
+		})
+	})
+	
+	
+	$(".pre_btn").click(function () {
+		if (index == 0) index = imgCnt;
+		else index--;
+		displayIdx()
+		moveSlider(index);
+		selectImg();
+		
+		if (index > 4) page = 1;
+		else page = 0;
+		movePage(page);
+	})
+	
+	$(".next_btn").click(function () {
+		if (index == imgCnt) index = 0;
+		else index++;
+		displayIdx()
+		moveSlider(index);
+		selectImg();
+		
+		if (index > 4) page = 1;
+		else page = 0;
+		movePage(page);
+	})
+	
+	$(".first_btn").click(function () {
+		index = 0;
+		displayIdx()
+		moveSlider(index);
+		
+		selectImg();
+		
+		if (index > 4) page = 1;
+		else page = 0;
+		movePage(page);
+		
+	})
+	
+	$(".last_btn").click(function () {
+		index = 5;
+		displayIdx()
+		moveSlider(index);
+		
+		selectImg();
+		
+		if (index > 4) page = 1;
+		else page = 0;
+		movePage(page);
+	})
+	
+	
+	for (var i=0; i < imgCnt +1; i++) {
+		$('.sumnail_panel img:eq('+i+')').click(function (){
+			index = $(this).index();
+			displayIdx()
+			moveSlider(index);
+			selectImg();
+			if (index > 4) page = 1;
+			else page = 0;
+			movePage(page);
+		});
+	}
+</script>
+</html>

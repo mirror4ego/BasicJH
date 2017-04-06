@@ -1,0 +1,57 @@
+<!-- 
+checkbox 의 checked,  disabled 속성은 prop를 활용
+prop( "속성명" ) : 속성값 얻기
+prop( "속성명", "값" ) : 속성값 설정
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>css selectors</title>
+<script src="/jquery-basic/js/jquery-3.1.0.js"></script>
+</head>
+<body>
+	당신의 취미는?<br>
+	<div class="chbx">
+	<input type="checkbox" name="all" value="전체" />전체<br>
+	<input type="checkbox" name="hobby" value="영화감상" />영화감상
+	<input type="checkbox" name="hobby" value="음악듣기" />음악듣기
+	<input type="checkbox" name="hobby" value="게임하기" />게임하기
+	<input type="checkbox" name="hobby" value="독서" />독서
+	</div>
+	<div>
+		<button>전체선택</button>
+		<button>전체해제</button>
+		<button>선택정보확인</button>
+	</div>
+<script>
+$("button:eq(0)").click (function (){
+	$(".chbx input[type='checkbox']").prop("checked", true);
+});
+
+
+$("button:eq(1)").click (function (){
+	$(".chbx input[type='checkbox']").prop("checked", false);
+});
+
+
+$("button:eq(2)").click (function (){
+	var count = 0;
+	var result = "";
+	$("input:checked").each(function () {
+		result += $(this).val()+" ";
+		count++;
+	});
+	alert("선택한 체크 박스 갯수 : " + count);
+	alert("선택한 체크 박스 : " + result);
+});
+
+
+$("input[name=all]").change(function () {
+	$(".chbx input[type='checkbox']").prop("checked", $(this).prop("checked"));
+});
+
+
+</script>
+</body>
+</html>

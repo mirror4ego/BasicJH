@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AJAX</title>
+<script src="framework.js"></script>
+</head>
+<body>
+	<h2>파라미터 처리 확인</h2>
+	<hr />
+	<textarea rows="10" cols="80" id="debug" draggable="false"></textarea>
+	<br />
+	<button id="clearBtn">초기화</button>
+	<button id="send1">get전송</button>
+	<button id="send2">post전송</button>
+	
+<script>
+	$("#clearBtn").click(function () {
+		$("#debug").value = "";
+	});
+	
+	// GET방식 전송
+	$("#send1").click(function () {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				$("#debug").val($("#debug").val()+ xhr.responseText + "\n");
+			}
+		};
+		xhr.open("GET", "/javascript-basic/exam04?msg=test", true);
+		xhr.send(null);
+	});
+	
+	// POST방식 전송	
+	$("#send2").click(function () {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				$("#debug").val($("#debug").val()+ xhr.responseText + "\n");
+			}
+		};
+		xhr.open("post", "/javascript-basic/exam04", true);
+		
+		// POST 방식일 경우 추가 처리
+		// header Content-Type을 설정해야 한다.
+		// application/x-www-form-urlencoded
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xhr.send("msg=test");
+	});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>텍스트 그리기</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="600" height="400" style="border: 1px solid tomato;"></canvas>
+	
+	<script>
+		var canvas = document.querySelector("#myCanvas");
+		var ctx = canvas.getContext("2d");
+		ctx.font = "bold 40px 궁서";
+		ctx.textAlign = "center";
+		ctx.fillText("TEXT", 10, 60);
+		ctx.textAlign = "left";
+		ctx.strokeText("TEXT", 10, 120);
+		ctx.textAlign = "right";
+		ctx.strokeText("TEXT", 10, 180, 200);
+		ctx.strokeText("TEXT", 10, 240, 80);
+	</script>
+</body>
+</html>

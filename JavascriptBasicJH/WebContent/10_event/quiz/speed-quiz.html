@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style>
+	body {
+		background: orange;
+		font-family: fantasy;
+		width: 100%;
+	}
+
+	#time {
+		margin-top: 30px;
+		text-align: center;
+		font-size: 70px;
+		font-family: fantasy;
+		font-weight: bold;
+		color: white;
+		letter-spacing: 10px;
+	}
+	#centerDiv {
+		margin: 200px auto;
+		width: 960px;
+		height: 400px;
+		text-align: center;
+		font-size: 50px;
+	}
+		
+	#answerDiv {
+		position: absolute;
+		right: 50px;
+		bottom: 50px;
+		
+		margin-top: 30px;
+		text-align: center;
+		font-size: 50px;
+		font-family: fantasy;
+		font-weight: bold;
+		color: black;
+	}
+	
+	button {
+		width: 200px;
+		height: 80px;
+		font-weight: bold;
+		font-size: 40px;
+		background: skyblue;
+		border: 1px solid black;
+	}
+	
+	button:hover {
+		background: blue;
+		color: white;
+	}
+	
+	#answerBtn, #failBtn {
+		display: none;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+	<div id="time">
+		<span>60</span>초
+	</div>
+	
+	<div id="centerDiv">
+		<h1 id="word">스피트 퀴즈</h1>
+		<button id="startBtn">시작</button>
+		<button id="answerBtn">정답</button>
+		<button id="failBtn">통과</button>
+	</div>
+
+	<div id="answerDiv">
+		정답개수 : <span>0</span>개		
+	</div>
+	<script>
+		var words = [
+		     "$(function() {})", "jQuery", "addClass", "removeClass", ":checked", ":disabled", ":selected", "replaceWith", 
+		     ":first", ':last', ':first-child', ':last-child',':nth-child(n)',':eq(n)',':gt(n)',':lt(n)', 
+		     'hasClass','toggleClass','attr','removeAttr','css','html','text','val', 'prop','remove','empty', 'append','prepend',
+		     'after', 'before', 'appendTo', ,'prependTo','insertAfter',
+		     'insertBefore','clone','add','children','end','filter','find','prev','prevAll','next','nextAll', 'slice'
+		];
+		window.onload = function () {
+			var startBtn = document.querySelector("#startBtn");
+			
+			startBtn.addEventListener("click", function quizStart() {
+				timeStart(); 
+				getWord();
+				// 이벤트 중지
+				startBtn.removeEventListener("click", quizStart);
+				startBtn.style.display = "none";
+				var answerBtn = document.querySelector("#answerBtn");
+				var failBtn = document.querySelector("#failBtn");
+				
+				answerBtn.style.display = "inline-block";
+				failBtn.style.display = "inline-block";
+				
+				answerBtn.addEventListener("click", answerProc);
+				failBtn.addEventListener("click", failProc);
+			});
+		};
+		
+		// 정답 처리
+		function answerProc() {
+			var spanObj = document.querySelector("#answerDiv > span");
+			spanObj.innerHTML = parseInt(spanObj.innerHTML) + 1;
+			getWord();
+		}
+		
+		// 실패 처리
+		function failProc() {
+			getWord();
+		}
+		
+		
+		var id;
+		function timeStart() {
+			id = setInterval(function () {
+				var timeSpan = document.querySelector("#time > span");
+				
+				var sec = parseInt(timeSpan.innerHTML);
+				if (sec == 0) {
+					clearInterval(id);
+					var word = document.querySelector("#word");
+					word.innerHTML = "종료되었습니다.";
+					finish();
+					return;
+				}
+				timeSpan.innerHTML = sec - 1;
+			}, 1000);
+		}
+		
+		function getWord() {
+			var word = document.querySelector("#word");
+			if (words.length == 0) {
+				word.innerHTML = "끝^^;;";
+				finish();		
+				return;
+			}
+			var no = Math.floor(Math.random() * words.length);
+			word.innerHTML = words[no];
+			words.splice(no,1);
+		}
+		
+		function finish() {
+			var answerBtn = document.querySelector("#answerBtn");
+			var failBtn = document.querySelector("#failBtn");
+			
+			answerBtn.removeEventListener("click", answerProc);
+			failBtn.removeEventListener("click", failProc);
+			clearInterval(id);
+		}
+	</script>	
+</body>
+</html>

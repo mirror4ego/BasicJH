@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="600" style="border: 1px solid tomato"></canvas>
+<script>
+var canvas = document.querySelector("#myCanvas");
+var ctx = canvas.getContext("2d");
+
+ctx.beginPath();
+ctx.arc(300, 300, 300, 0, Math.PI * 2, false);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(150, 200, 70, 0, Math.PI * 2, false);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(450, 200, 70, 0, Math.PI * 2, false);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(150, 150, 70, 0, Math.PI, true);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(450, 150, 70, 0, Math.PI, true);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(150, 200, 40, 0, Math.PI * 2, false);
+ctx.stroke();
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(450, 200, 40, 0, Math.PI * 2, false);
+ctx.stroke();
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(300, 500, 70, 0, Math.PI, false);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(300, 250);
+ctx.lineTo(250, 400);
+ctx.lineTo(300, 400);
+ctx.stroke();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>글번호조회</title>
+<style>
+#center{
+text-align: center;
+}
+#right{
+text-align: right;
+}
+</style>
+<hr>
+<h2>글번호조회</h2>
+<hr>
+</head>
+<body>
+	<table width="100%" border="1">
+	<tr>
+		<th width=100>글번호</th>
+		<td colspan="5"><input type="text" name="no" readonly style="width:100%;"></td>
+	</tr>
+	<tr>
+		<th width=100>작성자</th>
+		<td><input type="text" name="writer" readonly style="width:100%";></td>
+		<th width=100>등록시간</th>
+		<td><input type="text" name="regDate" readonly style="width:100%";></td>
+		<th width=100>조회수</th>
+		<td><input type="text" name="viewCount" readonly style="width:100%";></td>
+	</tr>
+	<tr>
+		<th width=100>글제목</th>
+		<td colspan="5"><input type="text" name="title" readonly style="width:100%;"></td>
+	</tr>
+	<tr>
+		<th width=100>글내용</th>
+		<td colspan="7"><textarea name="content" rows="30" readonly style="width:100%;"></textarea></td>
+	</tr>
+	</table>
+	<br>
+	<div id="right">
+	<input type="button" value="수정" onclick="location.href='updateBoard.html'">
+	<input type="button" value="삭제" onclick="">
+	<input type="button" value="이전글" onclick="">
+	<input type="button" value="다음글" onclick="">
+	<input type="button" value="글목록" onclick="location.href='list.html'">
+	</div>
+</body>
+</html>

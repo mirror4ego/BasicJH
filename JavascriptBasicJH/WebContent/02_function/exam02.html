@@ -1,0 +1,45 @@
+<!-- 
+	익명함수
+	
+	var 함수명 = function ([매개변수, ...]) {
+		실행 명령문...
+		[return 반환값;]
+	};
+	
+	특징
+	- 실행시에 함수 정보가 등록됨
+	- 선언후에 함수 호출이 가능함
+	- 주로 변수에 담아서 사용
+	
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>익명함수</title>
+</head>
+<body>
+<script>
+var sum = function (num1, num2) {
+	return num1 + num2;
+}
+var result = sum(100, 200);
+console.log(result);
+
+
+/*
+-- 컴파일시점
+var sum;
+var result;
+
+-- 실행시점
+sum = function (num1, num2) {
+	return num1 + num2;
+}
+result = sum(100, 200);
+console.log(result);
+*/
+
+</script>
+</body>
+</html>

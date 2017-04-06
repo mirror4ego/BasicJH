@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+	div, h1 { border: 3px solid black; margin: 30px; }
+</style>
+<body>
+	<div onclick="debug('가장 바깥쪽 DIV')">
+		<div onclick="debug('안쪽 DIV')">
+			<h1 onclick="debug('H1')">
+				이벤트 전파 확인
+			</h1>
+		</div>
+	</div>
+	<div id="debug"></div>
+	
+	<script>
+		function debug(msg) {
+			var debug = document.querySelector("#debug");
+			debug.innerHTML += msg + "<br>";
+		}
+	</script>
+</body>
+</html>

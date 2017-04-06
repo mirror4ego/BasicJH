@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>캔버스 - 선 끝모양</h1>
+	<canvas id="myCanvas" width="600" height="400" style="border: 1px solid tomato;"></canvas>
+	
+	<script>
+		var canvas = document.querySelector("#myCanvas")
+		var ctx = canvas.getContext("2d");
+		
+		ctx.beginPath();
+		ctx.arc(200, 200, 100,  0, Math.PI * 2, true);		
+		ctx.stroke();
+		ctx.fill();
+		
+		ctx.beginPath();
+		ctx.arc(400, 200, 100,  0, Math.PI / 2, false);		
+		ctx.stroke();
+		ctx.fill();
+		
+	</script>
+</body>
+</html>

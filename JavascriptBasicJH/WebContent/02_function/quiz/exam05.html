@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<script>
+	function calClosure(val1, val2) {
+		return function (f) {
+			var result=0;
+			switch (f) {
+			case "+" : result = val1 + val2; break;
+			case "-" : result = val1 - val2; break;
+			case "*" : result = val1 * val2; break;
+			case "/" : result = val1 / val2; break;			
+			}
+			return result;
+		};
+	}
+	var cal = calClosure(10, 5);
+	console.log(cal("+"));
+	console.log(cal("-"));
+	console.log(cal("*"));
+	console.log(cal("/"));
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!-- 
+	add : 확장 집합 추가
+	children( ) : 모든 자식
+	children("span") : 자식 중 span 만 선택
+	end() : 이전 확장 집합
+	filter("선택자") : 현재 집합에서 일부집합 추출
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>add, child, end, filter</title>
+<style type="text/css">
+	div {
+		width: 60px;
+		height: 60px;
+		margin: 10px;
+		float:left;
+		font-size: 30px;
+		font-weight:bold;
+	}
+	p {
+		clear: left;
+		font-weight:bold;
+		font-size: 30px;
+		margin:20px 10px;
+	}
+	input[type=button] {
+		font-size: 20px;
+		font-weight: bold;
+		width: 150px;
+		height: 40px;
+	}
+</style>
+<script src="/jquery-basic/js/jquery-3.1.0.js"></script>
+<script>
+	function add() {
+// 		$("div").css("background", "yellow");
+// 		$("div p").css("color", "tomato");
+
+		$("div").css("background", "yellow")
+				.add("p")
+				.css("color", "tomato");
+	}
+	
+	function child() {
+		$("div").css("background", "yellow")
+				.children("span")
+				.css("color", "tomato");
+	}
+	
+	// size() 는 1.8 버전부터 없어지고 length만 남음
+	function end() {
+		alert($("body").children().length);
+		alert($("body").children().children("span").length);
+		alert($("body").children().children("span").end().length);
+	}
+	
+	function filter() {
+		$("div").filter(":gt(0)").css("color", "skyblue");
+	}
+	
+</script>
+</head>
+<body>
+	<div>div<span>1</span></div>
+	<div>div<span>2</span></div>
+	<div>div<span>3</span></div>
+	<div>div<span>4</span></div>
+	<div>div<span>5</span></div>
+	<div>div<span>6</span></div>
+	<p>add, child, end, filter</p>
+	<input type="button" value="add()" onclick="add()" />
+	<input type="button" value="child()" onclick="child()" />
+	<input type="button" value="end()"    onclick="end()" />
+	<input type="button" value="filter()" onclick="filter()" />
+</body>
+</html>

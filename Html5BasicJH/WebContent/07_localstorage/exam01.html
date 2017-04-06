@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width: 400px;
+		height: 400px;
+		border: 1px solid black;
+		margin: 10px;
+		padding: 10px;
+		border-radius: 5px;
+	}
+</style>
+</head>
+<body>
+	키 : <input type="text" id="key" />
+	값 : <input type="text" id="value" />
+	<button id="addBtn">추가</button>
+	<button id="removeBtn">삭제</button>
+	<button id="clearBtn">전체삭제</button>
+	<button id="viewBtn">전체조회</button>
+	<div><ul></ul></div>
+<script>
+if(window.localStorage) {
+	alert("localStorage를 지원하는 브라우져");
+} else {
+	alert("localStorage를 지원하지 않는 브라우져");
+}
+
+document.querySelector("#addBtn").addEventListener("click", function () {
+	localStorage.setItem(document.querySelector("#key").value, document.querySelector("#value").value);
+});
+
+document.querySelector("#removeBtn").addEventListener("click", function () {
+	localStorage.removeItem(document.querySelector("#key").value);
+});
+
+document.querySelector("#clearBtn").addEventListener("click", function () {
+	localStorage.clear();	
+});
+
+document.querySelector("#viewBtn").addEventListener("click", function () {
+	var html="키    :   벨류 <br>";
+	for (var i = 0; i < localStorage.length; i++) {
+		alert(localStorage.key(i) + "   :   " +localStorage.getItem(localStorage.key(i)));
+		console.log(localStorage.key(i) + "   :   " +localStorage.getItem(localStorage.key(i)));
+		html += "<li>" + localStorage.key(i) + "   :   " +localStorage.getItem(localStorage.key(i)) + "</li>"; 				
+	}
+	document.querySelector("ul").innerHTML=html;
+});
+
+
+</script>
+</body>
+</html>

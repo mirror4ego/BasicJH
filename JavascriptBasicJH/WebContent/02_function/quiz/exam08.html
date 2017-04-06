@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	숫자1 : <input type="text" id="num1" />
+	+
+	숫자2 : <input type="text" id="num2" />
+	=
+	<input type="text" id="num3" readonly="readonly" />
+	<button id="b" onclick="cal()">확인</button>
+
+<script>
+
+function cal() {
+	var num1 = document.getElementById("num1");
+	var num2 = document.getElementById("num2");
+	if (isNaN(num1.value) || isNaN(num2.value)) {
+		alert("숫자만 입력하세요~");
+		return false;
+	}
+	document.getElementById("num3").value = Number(num1.value) + Number(num2.value);
+	document.getElementById("b").innerHTML = "끝";
+}
+</script>
+</body>
+</html>

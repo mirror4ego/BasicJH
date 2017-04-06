@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>캔버스 - 선 끝모양</h1>
+	<canvas id="myCanvas" width="600" height="400" style="border: 1px solid tomato;"></canvas>
+	
+	<script>
+		var canvas = document.querySelector("#myCanvas")
+		var ctx = canvas.getContext("2d");
+		
+		// 선의 굵기
+// 		ctx.lineWidth = 20;
+		// 선의 색깔
+		ctx.strokeStyle = "red";
+		
+		// 선 연결 모양
+		ctx.lineJoin = "bevel"; // 깍인 모양
+		ctx.lineJoin = "round"; // 사각 모양
+		ctx.lineJoin = "miter"; // 둥근 모양
+		
+		// 선그리기 시작
+		ctx.beginPath();
+		// 시작 좌표 지정
+		ctx.moveTo(100, 100);
+		// 연결 좌표 지정
+		ctx.lineTo(200, 50);
+		ctx.lineTo(300, 100);
+		ctx.lineTo(300, 150);
+		ctx.lineTo(200, 200);
+		ctx.lineTo(100, 150);
+		
+		// 패스 종료(시작좌표와 종료좌표이어줌)
+		ctx.closePath();
+		// 좌표 사이에 선 그리기
+		ctx.stroke();
+		
+		// 연결된 선 안에 채우기
+		ctx.fill();		
+		
+		
+	</script>
+</body>
+</html>

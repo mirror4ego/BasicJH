@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	var MyMap = {
+		count: 0,
+		mmm: new Object(),
+		put: function (k, v){
+			this.mmm[k]=v;
+			this.count++;
+		},
+		size: function (){
+			return this.count;
+		},
+		get: function (k){
+			return this.mmm[k]
+		},
+		del: function (k){
+			delete this.mmm[k];
+			this.count--;
+		},
+		clear: function() {
+			this.mmm={};
+			this.count=0;
+		}
+	};
+	var mData = MyMap;
+		
+	mData.put("id", "sbc");
+	mData.put("name", "sonbyungchan");
+	console.log(mData);
+	
+	alert(mData.size()); //2
+	alert(mData.get("id")); //sbc
+	mData.del("id");
+	alert(mData.get("id")); //undefined
+	mData.clear();
+	alert(mData.size()); //0
+	
+
+</script>
+</body>
+</html>

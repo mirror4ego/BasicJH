@@ -1,0 +1,29 @@
+<!-- 
+	String
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>String</title>
+</head>
+<body>
+<script>
+	var msg = "javascript is easy";
+	
+	console.log( msg.length ); // 문자열의 길이(함수가 아니므로 주의)
+	
+	console.log( msg.charAt(0) ); // 인덱스 위치의 문자
+	console.log( msg.indexOf("a")); // 젤 앞에 있는 문자a의 인덱스
+	console.log( msg.lastIndexOf("a")); // 젤 뒤에 있는 문자a의 인덱스
+	console.log( msg.indexOf("a", 2)); // 앞에서부터 2번째에 있는 문자a의 인덱스
+	console.log( msg.split("a") ); // "a"기준으로 나누기(배열리턴)
+	console.log( msg.split("a", 2) ); // "a"기준으로 나눈후 앞에서부터 2개만 리턴(배열리턴)
+	console.log( msg.substring(2)); // 2번인덱스부터 끝까지 추출
+	console.log( msg.substring(2, 5)); // 2번인덱스부터 5번인덱스 전(4번인덱스)까지 추출
+	console.log( msg.substr(2, 5));  // 2번인덱스부터 5의 길이만큼 추출
+	
+		
+</script>
+</body>
+</html>

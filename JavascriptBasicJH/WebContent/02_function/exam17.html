@@ -1,0 +1,35 @@
+<!-- 
+	특정 엘리먼트 접근하기
+	var time = document.getElementById("time");
+	
+	엘리먼트(시작태그와 종료태그)
+	time.innerHTML
+	
+	클릭 되었을때 처리할 자바스크립트 코드 명시
+	onclick="실행할 자바 스크립트 코드"
+	
+	자바 스크립트 Date 내장객체
+	new Date()
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<h1 id="time"></h1>
+<button onclick="showTime()">시작</button>
+
+<script>
+	function showTime() {
+		var currentDate = new Date();
+		// <h1 id="time"></h1>
+		var time = document.getElementById("time");
+		time.innerHTML = currentDate.toLocaleTimeString();
+		currentDate.
+		setTimeout(showTime, 10);
+	}
+</script>
+</body>
+</html>

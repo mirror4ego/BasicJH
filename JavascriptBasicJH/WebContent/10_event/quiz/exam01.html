@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	p {
+		font-size: 20px;
+		font-weight: bold;
+		height: 40px;
+		background: tomato;
+		color: white;
+		text-align: center;
+		line-height: 40px;
+	}
+	
+	#innerDiv {
+		position: absolute;
+		height: 100px;
+		width: 100px;
+		background-color: tomato;
+	}
+	
+</style>
+</head>
+<body>
+	<p>마우스 이벤트 연습</p>
+	<div id='innerDiv'></div>
+
+	<script>
+		var innerDIV = document.querySelector('#innerDiv');
+		// 도큐먼트로 주면 웹페이지 전체
+		document.addEventListener("mousemove", function (e) {
+			innerDiv.style.top = e.clientY + "px";
+			innerDiv.style.left = e.clientX + "px";
+		});
+	</script>
+</body>
+</html>

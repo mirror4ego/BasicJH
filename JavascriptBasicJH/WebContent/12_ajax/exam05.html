@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AJAX</title>
+<script src="framework.js"></script>
+</head>
+<body>
+	<h2>XML DATA 처리</h2>
+	<hr />
+	<textarea rows="10" cols="80" id="debug" draggable="false"></textarea>
+	<br />
+	<button id="clearBtn">초기화</button>
+	<button id="sendBtn">전송</button>
+	
+<script>
+	$("#clearBtn").click(function () {
+		$("#debug").value = "";
+	});
+	
+	$("#sendBtn").click(function () {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			var result = xhr.responseText;
+			var resultXML = xhr.responseXML;
+			var mList = resultXML.getElementsByTagName("member");
+			if (xhr.readyState = 4 && xhr.status == 200) {
+				$("#debug").val($("#debug").val() + "회원수 : " + mList.length + "\n");
+				for (var i = 0; i < mList.length; i++) {
+					var m = mList[i];
+					var name = m.getElementsByTagName("name")[0].firstChild.nodeValue;
+					var age = m.getElementsByTagName("age")[0].firstChild.nodeValue;
+				$("#debug").val($("#debug").val() + "이름 : " + name + "\n");
+				$("#debug").val($("#debug").val() + "나이 : " + age + "\n");
+				}
+			} 
+		};
+		xhr.open("GET", "/javascript-basic/exam05", true);
+		xhr.send(null);
+		
+		
+	});
+</script>
+
+</body>
+</html>

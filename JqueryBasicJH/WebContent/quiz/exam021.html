@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	border: 0px;
+	margin: 0px;
+}
+
+.container {
+	width: 50%;
+}
+
+.topMenu>div>span {
+	font-size: 10px;
+	font-weight: bolder;
+}
+
+.topMenu>div>button {
+	background: none;
+}
+
+.topMenu>#lMenu {
+	float: left;
+}
+
+.topMenu>#rMenu {
+	float: right;
+}
+
+.animation_canvas {
+	overflow: hidden;
+	position: relative;
+	width: 600px;
+	height: 400px;
+}
+
+.slider_panel {
+	width: 4200px;
+	position: relative;
+}
+
+.slider_image {
+	float: left;
+	width: 600px;
+	height: 400px;
+}
+
+.btm_canvas {
+	overflow: hidden;
+	position: relative;
+	width: 550px;
+}
+
+.btm_panel {
+	width: 1100px;
+	position: relative;
+}
+
+.btm_image {
+	float: left;
+	margin: 0px 5px;
+	width: 100px;
+}
+
+.btm_panel>img[data-no="0"] {
+	border: 2px solid tomato;
+}
+</style>
+<script src="../jquery-3.1.0.js"></script>
+</head>
+<body>
+	<div>슬라이드쇼</div>
+	<hr>
+	<div align="center">
+		<div class="container">
+			<div class="topMenu" align="left">
+				<div id="lMenu">
+					<span>슬라이드쇼</span>
+					<select name="selBox" id="selBox">
+						<option value="1">1초</option>
+						<option value="2">2초</option>
+						<option value="3">3초</option>
+						<option value="4">4초</option>
+					</select>
+					<button>시작</button>
+					<button>중지</button>
+					<span>크기</span>
+					<button>축소</button>
+					<button>기본크기</button>
+					<button>확대</button>
+				</div>
+				<div id="rMenu">
+					<button>◀◀</button>
+					<button class="prevBtn">◀</button>
+					<span>1/7</span>
+					<button class="nextBtn">▶</button>
+					<button>▶▶</button>
+				</div>
+			</div>
+			<br> <br>
+
+			<div class="animation_canvas">
+				<div class="slider_panel">
+					<img src="Desert.jpg" class="slider_image" /> <img src="Desert.jpg" class="slider_image" /> <img src="Hydrangeas.jpg" class="slider_image" /> <img src="Jellyfish.jpg" class="slider_image" /> <img src="Koala.jpg" class="slider_image" /> <img src="Lighthouse.jpg"
+						class="slider_image" /> <img src="Lighthouse.jpg" class="slider_image" />
+				</div>
+			</div>
+			<br> <br>
+			<div class="btmMenu">
+				<button class="prevBtn">◀</button>
+				<div class="btm_canvas">
+					<div class="btm_panel">
+						<img src="Desert.jpg" data-no="0" class="btm_image" /> <img src="Desert.jpg" data-no="1" class="btm_image" /> <img src="Hydrangeas.jpg" data-no="2" class="btm_image" /> <img src="Jellyfish.jpg" data-no="3" class="btm_image" /> <img src="Koala.jpg" data-no="4"
+							class="btm_image" /> <img src="Lighthouse.jpg" data-no="5" class="btm_image" /> <img src="Lighthouse.jpg" data-no="6" class="btm_image" />
+					</div>
+				</div>
+				<button class="nextBtn">▶</button>
+			</div>
+		</div>
+		<br> <br>
+	</div>
+
+	<script>
+		var index = 0;
+		var startIdx = 0;
+		var maxIdx = $(".btm_panel>img").length - 1;
+		var interval = null;
+		var width = 600;
+		
+		$("#rMenu > button:eq(0)").click(function(){
+			if(index > 5){
+				moveBtmSlider(0);
+			}
+			index = 0;
+			moveSlider(index);
+			setIndexStatus(index);
+		});
+		$("#rMenu > button:eq(3)").click(function(){
+			if(index < 5){
+				moveBtmSlider(1);
+			}
+			index = maxIdx;
+			moveSlider(index);
+			setIndexStatus(index);
+		});
+
+		$(".btm_panel > img").click(function() {
+			var chooseNo = parseInt($(this).attr("data-no"));
+			index = chooseNo;
+			moveSlider(index);
+			setIndexStatus(index);
+		});
+
+		$("rMenu>button:eq(0)").click(function() {
+			console.log('1');
+		});
+
+		$("rMenu>button:eq(3)").click(function() {
+			console.log('2');
+		});
+
+		$("#lMenu > button:eq(2)").click(function() {//축소
+			if (width > 300) {
+				$(".animation_canvas").css({
+					"width" : "-=60",
+					"height" : "-=40"
+				});
+				$(".slider_image").css({
+					"width" : "-=60",
+					"height" : "-=40"
+				});
+				$(".slider_panel").css({
+					"width" : "-=" + (60 * (maxIdx + 1)),
+					"height" : "-=40"
+				});
+				width -= 60;
+			}
+		});
+		$("#lMenu > button:eq(3)").click(function() { //기본크기
+			width = 600;
+			$(".animation_canvas").css({
+				"width" : "600",
+				"height" : "400"
+			});
+			$(".slider_image").css({
+				"width" : "600",
+				"height" : "400"
+			});
+			$(".slider_panel").css({
+				"width" : (width * (maxIdx + 1)) + "",
+				"height" : "400"
+			});
+		});
+		$("#lMenu > button:eq(4)").click(function() { //확대
+			if (width < 600) {
+				$(".animation_canvas").css({
+					"width" : "+=60",
+					"height" : "+=40"
+				});
+				$(".slider_image").css({
+					"width" : "+=60",
+					"height" : "+=40"
+				});
+				$(".slider_panel").css({
+					"width" : "+=" + (60 * (maxIdx + 1)),
+					"height" : "+=40"
+				});
+				width += 60;
+			}
+		});
+
+		function moveSlider(index) {
+			var move = -(index * width);
+			$(".slider_panel").animate({
+				left : move
+			}, 500);
+		}
+
+		function moveBtmSlider(i) {
+			var move = -(i * 550);
+			$(".btm_panel").animate({
+				left : move
+			}, 'slow');
+		}
+
+		$("#lMenu > button:eq(0)").click(function(e) {
+			if (interval == null) {
+				interval = setInterval(function() {
+					$(".btmMenu > .nextBtn").trigger("click");
+				}, parseInt($("#selBox").val()) * 1000);
+			}
+		});
+		$("#lMenu > button:eq(1)").click(function(e) {
+			if (interval != null) {
+				clearInterval(interval);
+				interval = null;
+			}
+		});
+
+		$(".prevBtn").click(function(e) {
+			if ((index) % 5 == 0) {
+				moveBtmSlider(0);
+			}
+			if (index == startIdx) {
+				index = maxIdx;
+				moveBtmSlider(1);
+			} else {
+				index--;
+			}
+			setIndexStatus(1);
+			moveSlider(index);
+		});
+		$(".nextBtn").click(function(e) {
+			if ((index + 1) % 5 == 0) {
+				moveBtmSlider(1);
+			}
+			if (index == maxIdx) {
+				index = startIdx;
+				moveBtmSlider(0);
+			} else {
+				index++;
+			}
+			setIndexStatus(-1);
+			moveSlider(index);
+		});
+
+		function setIndexStatus(i) {
+			$("#rMenu>span").text((index + 1) + "/" + (maxIdx + 1));
+			$(".btm_panel>img").css("border", "none");
+			$(".btm_panel>img:eq(" + index + ")").css("border", "2px solid tomato");
+		}
+	</script>
+</body>
+</html>

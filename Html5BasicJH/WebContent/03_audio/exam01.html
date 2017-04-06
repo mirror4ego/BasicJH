@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<audio id="myAudio" controls="controls">
+		<source src="exid.mp3" type="audio/mpeg"  />
+	</audio>
+	<div>
+		<button id="playBtn">재생</button>
+		<span id="cTime"></span>
+		<canvas id="myCanvas" width="300" height="5" style="border: 1px solid blue;"></canvas>
+		<button id="muteBtn">mute</button>
+		<input type="range" id="volume" min="0" max="1" step="0.1" value="0.5">
+	</div>
+
+	<script>
+		var debug = document.querySelector("#debug");
+		var cTime = document.querySelector("#cTime");
+		var audio = document.querySelector("#myAudio");
+		var playBtn = document.querySelector("#playBtn");
+		var muteBtn = document.querySelector("#muteBtn");
+		var volume = document.querySelector("#volume");
+		var canvas = document.querySelector("#myCanvas");
+		
+		
+		function showTime() {
+			var currentTime = parseInt(audio.currentTime);
+			var duration = parseInt(audio.duration);
+			var time = parseInt(currentTime / 60) + ":" + pad(currentTime % 60);
+			var playTime = parseInt(duration / 60) + ":" + pad(duration % 60);
+			cTime.innerHTML = time + "/" + playTime;
+			
+			// 캔버스에 진행률 표시하기
+			var cWidth = Math.round(currentTime) / duration * canvas.clientWidth;
+			var ctx = canvas.getContext("2d");
+			ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+			ctx.fillStyle = "tomato";
+			if (cWidth > 0) {
+				ctx.fillRect(0, 0, cWidth, canvas.clientHeight);
+			}
+		};
+		
+		function pad(time) {
+			return time < 10 ? "0" + time : time;
+		};
+		
+		function toggleMusic () {
+			if (audio.paused) {
+				audio.play();
+				playBtn.innerHTML = "정지";
+			} else {
+				audio.pause();
+				playBtn.innerHTML = "재생";
+			}
+		}
+		
+		function toggleMute () {
+			audio.muted = !audio.muted;
+			if (audio.muted) {
+				muteBtn.innerHTML = "unmute";
+				volume.value = 0;
+			} else {
+				muteBtn.innerHTML = "mute";
+				volume.value = audio.volume;
+			}
+		}
+		
+		function controlVolume () {
+			if (audio.muted) {
+				muteBtn.innerHTML = "unmute";
+			} else {
+				muteBtn.innerHTML = "mute";
+			}
+			audio.volume = volume.value;
+		}
+		
+		function controlPlaytime (e) {
+			var duration = parseInt(audio.duration);
+			audio.currentTime = e.offsetX / canvas.clientWidth * duration;
+		}
+		
+		canvas.addEventListener("click", controlPlaytime);
+		volume.addEventListener("change", controlVolume);
+		audio.addEventListener("timeupdate", showTime);
+		playBtn.addEventListener("click", toggleMusic);
+		muteBtn.addEventListener("click", toggleMute);
+	</script>
+</body>
+</html>

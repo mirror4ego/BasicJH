@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style>
+	div {
+		border: 2px solid black;
+		float: left;
+		height: 500px;
+		text-align: center;
+		margin-top: 40px;
+	}
+	p {
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		font-weight: bold;
+		background-color: tomato;
+		color: white;		
+	}
+	#list {
+		width: 250px;
+
+	}
+	#detail {
+		width: 600px;
+		margin-left: 50px;
+	}
+	
+	#memberList {
+		margin: 0 auto;
+		height: 350px;
+		width: 200px;
+		line-height: 50px;
+	}
+	
+	#memberDetail{
+		margin: 10px;
+		height: 350px;
+		width: 550px;
+	}
+</style>
+</head>
+<body>
+<select>
+	<option>선택하세요</option>
+</select><br><br>
+<button id="listBtn">회원정보 조회</button><br>
+<div id="list">
+	<p>회원목록</p>
+	<div id="memberList"></div>
+</div>
+<div id="detail">
+	<p>회원 상세</p>
+	<div id="memberDetail"></div>
+</div>
+<script>
+
+function responseMsg(result) {
+	$("#memberList").html(" ");
+	for (var i = 0; i < result.length; i++) {
+		var m = result[i];
+		$("#memberList").html($("#memberList").html()+ "<a onclick='detail('"+m.id+"')'>"+ m.name+"</a><br>");	
+	}
+}; 
+
+		
+		
+function responseMsg2(result) {
+	$("#memberDetail").html(" ");
+	$("#memberDetail").html(result.id+result.name+result.password);
+};
+
+$("#listBtn").click(function() {
+	$.ajax({
+		url: "/javascript-basic/quiz02", 
+		dataType: "json",
+		success: responseMsg
+	});
+});
+
+function detail(id) {
+	$.ajax({
+		url: "/javascript-basic/quiz02?id="+id, 
+		dataType: "json",
+		success: responseMsg2
+	});
+}
+
+
+</script>
+</body>
+</html>

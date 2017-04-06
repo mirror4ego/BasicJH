@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#side{
+	display: block;
+	float: left;
+	background-color: gray;
+	width: 200px;
+	font-size: 25px;
+	margin: 20px;
+}
+
+
+#dis{
+	float: left;
+	border: 3px solid tomato;
+	font-size: 25px;
+	line-height: 80px;
+	height: 80px;
+	width: 800px;
+	margin: 20px;
+}
+
+#dis div {
+	float: left;
+	margin: 5px;
+}
+
+</style>
+</head>
+<body>
+<form name="mForm">
+<div id="side">
+<input type="checkbox" id="java" name="java" onclick="add('JAVA')" /><label for="java">JAVA</label><br>
+<input type="checkbox" id="sql" name="sql" onclick="add('SQL')" /><label for="sql">SQL</label><br>
+<input type="checkbox" id="html" name="html" onclick="add('HTML')" /><label for="html">HTML</label><br>
+<input type="checkbox" id="css" name="css" onclick="add('CSS')" /><label for="css">CSS</label><br>
+<input type="checkbox" id="javascript" name="javascript" onclick="add('JAVASCRIPT')" /><label for="javascript">JAVASCRIPT</label>
+</div>
+
+<div id="dis"></div>
+</form>
+<script>
+	function add(input) {
+		var loInput= input.toLowerCase();
+		if (document.mForm[loInput].checked) {
+			var dis = document.getElementById("dis");
+			dis.innerHTML += "<div id='add"+input+"'>"+input+"</div>";
+			var dis2 = document.getElementById("add"+input);
+				var btn = document.createElement('button');
+				var x = document.createTextNode('x');
+				btn.appendChild(x);
+				btn.setAttribute('onclick', 'dela(' + input + ')');
+			dis2.appendChild(btn);
+		} else {
+			dela(input);
+		}
+	}
+	
+	function dela(inputdiv) {
+		var loInput= inputdiv.toLowerCase();
+		var dDiv = document.getElementById("add"+inputdiv);
+		dDiv.parentNode.removeChild(dDiv);
+		document.mForm[loInput].checked=false;
+	}
+	
+</script>
+</body>
+</html>

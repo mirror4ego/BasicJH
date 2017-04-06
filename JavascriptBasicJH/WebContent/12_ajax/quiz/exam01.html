@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<style>
+	
+</style>
+<script src="framework.js"></script>
+</head>
+<body>
+<input id="userid" type="text">
+<button>중복확인</button>
+<div id="result"></idv>
+<script>
+	$("#userid").keyup(function () {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4) { 
+				if (xhr.status == 200) { 
+					if (xhr.responseText == "중복") {
+						$("#result").html("중복된 아이디");
+					} else {
+						$("#result").html("사용가능 아이디");
+					}
+				}
+			}
+		};  
+		xhr.open("GET", "/javascript-basic/duplication?id=" + $("#userid").val(), true);
+		xhr.send(null);
+	});
+</script>
+</body>
+</html>

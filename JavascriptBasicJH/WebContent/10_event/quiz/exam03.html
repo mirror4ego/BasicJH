@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body {
+		background-color: orange;
+	}
+	h1 {
+		text-align: center;
+		margin: 50px;
+	}
+	button {
+		width: 100px; height: 50px;
+		margin: 0 auto;
+		background-color: skyblue;
+		border: 1px solid black;
+		color: black;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	button:hover {
+		background-color: blue;
+	}
+	#answer {
+		text-align: right;
+		margin-right: 100px;
+	}
+	#time {
+		color: white;
+	}
+	#question {
+		font-size: 50px;
+	}
+</style>
+</head>
+<body>
+<h1 id="time">10초</h1>
+<br><br>
+<h1 id="question">스피드 퀴즈</h1>
+<div id="ct"><button id="start">시작</button></div><br>
+<h1 id="answer">정답개수 : 0개</h1>
+
+<script>
+var rt = 10;
+var ca = 0;
+var start = document.querySelector("start")
+start.addEventListener("click", setQuiz);
+
+function setQuiz(e) {
+	var ct = document.querySelector("ct")
+	start.parentNode.removeChild(start);
+	ct.innerHTML = "<button id='good'>정답</button><button id='bad'>패스</button>"
+}
+
+</script>
+
+</body>
+</html>

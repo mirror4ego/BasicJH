@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		display: none;
+	}
+</style>
+</head>
+<body>
+	<button onclick="show('d1')">마술사</button>
+	<button onclick="show('d2')">갓오브</button>
+	<div id='d1'>
+		<p>
+			마술사<br>
+			300년 동안 악명높은 에더마스크 그의 진실이 가려지는데...
+		</p>
+	</div>
+	<div id='d2'>
+		<p>
+			갓오브하이스쿨<br>
+			전국 고등학생들의 무술대회...
+			으이나ㅓ레ㅐㅑ저랴ㅐㅔ젇랴ㅓㅈ대ㅔㅑ러ㅔㅐㅑ저래ㅔ쟈더래ㅑㅔ더ㅔㅐㅑㅓㅈ
+		</p>
+	</div>
+	
+	<script>
+	function show(tagId) {
+		var dObj = document.querySelectorAll("div");
+		for (var i = 0; i < dObj.length; i++) {
+			dObj[i].style.display="none";		
+		}
+		var divObj = document.getElementById(tagId)
+		divObj.style.display="block";
+	}
+</script>
+</body>
+</html>

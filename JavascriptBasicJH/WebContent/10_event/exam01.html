@@ -1,0 +1,60 @@
+<!--  
+	고전 이벤트 설정 방식
+
+	객체.on이벤트타입 = 콜백함수;
+	var btn = document.querySelector("button");
+	btn.onclick = function () {}
+	btn.onmousedown = function () {}
+	btn.onmouseup = function () {}
+	btn.onmousemove = function () {}
+	
+	이벤트 해제
+	btn.onclick = null;
+	
+	<button>클릭</button>
+		
+	<button onclick="chkFn()">클릭</button>
+	
+	
+	var f = document.querySelector("form");
+	f.onsubmit = function() {}
+	<form></form>
+	
+	<form onsubmit="return chkFn()">
+	
+	</form>
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	button {
+		width: 200px;
+		height: 100px;
+		color: white;
+		background: tomato;
+		border: 2px solid black;
+		font-size: 25px;
+	}
+</style>
+</head>
+<body>
+	<button>1번 버튼</button>
+	<button>2번 버튼</button>
+	
+	<script>
+		var btnArr = document.querySelectorAll("button");
+		for (var i = 0; i < btnArr.length; i++) {
+			btnArr[i].onclick = function () {
+				// this = btnArr[i]
+				alert(this.innerHTML); 
+				
+				// 한번 클릭하면 다음부턴 이벤트 발생 불가
+				this.onclick = null; 
+			}
+		}
+	</script>
+</body>
+</html>

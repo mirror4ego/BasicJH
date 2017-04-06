@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function winClose() {
+		// 부모창 접근 : opener
+		opener.doResult("자식창에서 보낸 메시지 : success");
+		self.close();
+	}
+</script>
+</head>
+<body>
+<button onclick = "winClose();">닫기</button>
+</body>
+</html>

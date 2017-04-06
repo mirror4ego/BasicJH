@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+	img {
+		/* 동작할 에니메이션 이름 */
+		animation-name: asdf;
+		
+		/* 에니메이션 지속시간 */
+		animation-duration: 3s;
+		
+		/* 에니메이션 반복 횟수 */
+        animation-iteration-count: infinite;
+	}
+	
+	@keyframes asdf {
+		from {transform : rotateZ(0deg)}
+		to {transform : rotateZ(360deg)}
+	} 
+</style>
+</head>
+<body>
+<div>
+	<button type="button"><img id="image" alt="로딩" src="images/spinner.png"></button>
+</div>
+</body>
+</html>

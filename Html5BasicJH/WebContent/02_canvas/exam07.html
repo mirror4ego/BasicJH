@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>텍스트 그리기</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="600" height="400" style="border: 1px solid tomato;"></canvas>
+	
+	<script>
+		var canvas = document.querySelector("#myCanvas");
+		var ctx = canvas.getContext("2d");
+		ctx.font = "bold 40px 궁서";
+		ctx.textBaseline = "middle";
+		ctx.textAlign = "center";
+		ctx.fillText("CENTER", canvas.getAttribute("width")/2, canvas.getAttribute("height")/2);
+		
+		
+		/*
+		ctx.beginPath();
+		ctx.moveTo(0, 100);
+		ctx.lineTo(600, 100);
+		ctx.stroke();
+		
+		ctx.beginPath();
+		ctx.moveTo(0, 200);
+		ctx.lineTo(600, 200);
+		ctx.stroke();
+		
+		ctx.beginPath();
+		ctx.moveTo(0, 300);
+		ctx.lineTo(600, 300);
+		ctx.stroke();
+		
+		ctx.beginPath();
+		ctx.moveTo(0, 400);
+		ctx.lineTo(600, 400);
+		ctx.stroke();
+		
+		// 기본 설정된 값
+		ctx.textBaseline = "alphabetic";
+		ctx.fillText("HTML5 alphabetic", 0, 100);
+		
+		ctx.textBaseline = "top";
+		ctx.fillText("HTML5 top", 0, 200);
+		
+		ctx.textBaseline = "middle";
+		ctx.fillText("HTML5 middle", 0, 300);
+		
+		ctx.textBaseline = "bottom";
+		ctx.fillText("HTML5 bottom", 0, 400);
+		*/
+		
+	</script>
+</body>
+</html>

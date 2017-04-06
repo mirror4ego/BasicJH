@@ -1,0 +1,18 @@
+<!-- 
+	문자열과 숫자 타입의 + 연산은 문자 타입 우선
+	문자열과 숫자 타입의 + 이외의 연산은 숫자 타입 우선
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		console.log(1 + "20"); //문자열 120
+		console.log("1" + "20"); //문자열 120
+		console.log("100" - 20); //숫자 80
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AJAX</title>
+<script src="framework.js"></script>
+</head>
+<body>
+	<h1>서버에서 받은 메세지</h1>
+	<div id="result"></div>
+	<br>
+	<button>Ajax 호출</button>
+	
+<script>
+	function responseMsg(result) {
+		$("#result").html(result);
+	}; 
+
+	$("button").click(function () {
+		$.ajax({
+			url: "hello.jsp", 
+			success: responseMsg
+		});
+	});
+</script>
+</body>
+</html>

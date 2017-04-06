@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="/jquery-basic/js/jquery-3.1.0.js"></script>
+</head>
+<body>
+<form id="ajaxForm" action="/jquery-basic/ajaxfile/exam02" method="post" enctype="multipart/form-data">
+	<input type="text" name="msg" /><br>
+	<input type="file" name="attachFile" multiple="multiple" />
+	<button type="button">업로드</button>
+</form>
+<script>
+	$("button").click(function () {
+
+		var fd = new FormData();
+			fd.method = 'POST';
+			fd.enctype = 'multipart/form-data';
+			fd.append("msg", $("[name=msg]").val());
+			fd.append("attachFile1", $("input[name=attachFile]")[0].files[0]);
+			fd.append("attachFile2", $("input[name=attachFile]")[0].files[1]);
+		
+		$.ajax({
+			url: "/jquery-basic/ajaxfile/exam02",
+			data: fd,
+			type: "POST",
+			processData: false, // 파라미터를 name=value로 보내지 마라
+			contentType: false, // contenttype을 설정하지 않음
+			success: function () {
+				alert("파일업로드성공");
+			}
+		})
+			
+	});
+</script>
+</body>
+</html>

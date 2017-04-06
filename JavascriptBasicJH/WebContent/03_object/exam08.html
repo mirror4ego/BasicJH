@@ -1,0 +1,23 @@
+<!--  
+	모든 객체들은 자신의 부모가 누구인지 가리키는 __proto__(크롬) 라는 객체를 가지고 있다.
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>최상위 객체</title>
+</head>
+<body>
+<script>
+	var member = { name: "홍길동" };
+	console.log(member.toString());
+	console.dir(member);
+	
+	function test() {
+		alert("good");
+	};
+	console.dir(test);
+	
+</script>
+</body>
+</html>

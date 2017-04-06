@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h3, div{
+		margin: 0px;
+		padding: 5px;
+		width: 500px;
+		border: 2px solid #334455;
+		box-sizing: border-box;	
+	}
+	
+	h3 {
+		background-color: #8899aa;
+	}
+	
+	h3:hover {
+		background-color: red;
+	}
+	
+	div {
+		position: absolute;
+		height: 160px;
+ 		clip: rect(0px, 500px, 160px, 0px);
+	}
+
+</style>
+</head>
+<body>
+	<h2>어코디언 기능 구현</h2>
+	<h3 onclick="doAction();">오늘은 자바스크립트 CSS</h3>
+	
+	<div>
+		오늘은 자바스크립트 CSS 적용하는 날<br>
+		오늘은 자바스크립트 CSS 적용하는 날<br>
+		오늘은 자바스크립트 CSS 적용하는 날
+	</div>
+	
+	<script>
+// 		console.log(document.defaultView.getComputedStyle(div, null).getPropertyValue("height"));
+		var bottom=160;
+		function doAction() {
+			if (bottom == 160) {
+				bottom = bottom - 0.32;
+				var divObj = document.querySelector("div");
+				divObj.style.clip = "rect(0px, 500px,"+bottom+"px, 0px)";
+				var id = setInterval(function() {}, 10);											
+				if (bottom == 0) {
+					clearTimeout(id);
+				}
+			} else {
+				bottom = bottom + 0.32;
+				var divObj = document.querySelector("div");
+				divObj.style.clip = "rect(0px, 500px,"+bottom+"px, 0px)";
+				var id = setTimeout(doAction, 10);											
+				if (bottom == 160) {
+					clearTimeout(id);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

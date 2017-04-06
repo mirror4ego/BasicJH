@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+	#cube {
+		position: relative;
+		width:200px; height:200px;
+		left: 200px; top: 200px;
+		/* 자식의 3차원 속성을 지원 */
+		transform-style: preserve-3d;
+		
+		/* 동작할 에니메이션 이름 */
+		animation-name: mycube;
+		
+		/* 에니메이션 지속시간 */
+		animation-duration: 7s;
+		
+		/* 에니메이션 반복 횟수 */
+        animation-iteration-count: infinite;
+        
+        /* 원근감 효과 */
+        perspective: 600px;
+	}
+	
+	#cube > div {
+		position: absolute;
+		left: 0px; top: 0px;
+		width:200px; height:200px;
+		font-size: 40px;
+		text-align: center;
+		line-height: 200px;
+		border: 2px solid black;
+	} 
+	
+	#cube img {
+		width:200px; height:200px;
+	}
+			
+	#i1 { transform: rotateY(0deg) translateZ(200px);}		
+	#i2 { transform: rotateY(60deg) translateZ(200px);}		
+	#i3 { transform: rotateY(120deg) translateZ(200px); }		
+	#i4 { transform: rotateY(180deg) translateZ(200px); }		
+	#i5 { transform: rotateY(240deg) translateZ(200px); }		
+	#i6 { transform: rotateY(300deg) translateZ(200px);}
+	
+	@keyframes mycube {
+		from { transform: rotateX(-20deg) rotateY(0deg); }
+		to { transform: rotateX(-20deg) rotateY(360deg); }
+	}
+	
+</style>
+</head>
+<body>
+	<h1>큐브</h1>
+	<div id="cube">
+		<div id="i1"><img src="../images/dog.jpg" /></div>
+		<div id="i2"><img src="../images/dog.jpg" /></div>
+		<div id="i3"><img src="../images/dog.jpg" /></div>
+		<div id="i4"><img src="../images/dog.jpg" /></div>
+		<div id="i5"><img src="../images/dog.jpg" /></div>
+		<div id="i6"><img src="../images/dog.jpg" /></div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function doAdd(type) {
+		var tag;
+		switch (type) {
+		case 1:
+			tag = "문자열 : <input type='text'><br>";
+			break;
+		case 2:
+			tag = "비밀번호 : <input type='password'><br>";
+			break;
+		case 3:
+			tag = "<input type='checkbox'> 체크박스 <br>";
+			break;
+		case 4:
+			tag = "라디오버튼 : <input type='radio' /><br>";
+			break;
+		case 5:
+			tag = "버튼 : <input type='button' value='버튼' /><br>";
+			break;
+		case 6:
+			tag = "콤보박스 : <select>";
+			for (var i = 1; i < 6; i++ ){
+				tag += "<option>콤보항목 ->"+i+"</option>";				
+			}
+			tag +="</select><br>";
+			break;
+		}
+		var view = document.getElementById("view");
+		view.appendChild(tag);
+	}
+</script>
+</head>
+<body>
+<h1>DOM Node 생성</h1>
+<hr>
+<div id="view"></div>
+
+<ul>
+	<li><a href="#" onclick="doAdd(1)">문자열 박스 생성</a></li>
+	<li><a href="#" onclick="doAdd(2)">비밀번호 박스 생성</a></li>
+	<li><a href="#" onclick="doAdd(3)">체크 박스 생성</a></li>
+	<li><a href="#" onclick="doAdd(4)">라디오 버튼 생성</a></li>
+	<li><a href="#" onclick="doAdd(5)">버튼 생성</a></li>
+	<li><a href="#" onclick="doAdd(6)">콤보박스 생성</a></li>
+</ul>
+</body>
+</html>

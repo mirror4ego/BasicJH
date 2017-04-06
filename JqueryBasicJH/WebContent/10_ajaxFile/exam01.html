@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="/jquery-basic/js/jquery-3.1.0.js"></script>
+<script src="/jquery-basic/js/jquery.form.js"></script>
+</head>
+<body>
+<form id="ajaxForm" action="/jquery-basic/ajaxfile/exam01" method="post" enctype="multipart/form-data">
+	<input type="text" name="msg" /><br>
+	<input type="file" name="attachFile" />
+	<button>업로드</button>
+</form>
+<script>
+	// jquery.form.js 에 있는 함수
+	$("#ajaxForm").ajaxForm({
+		// validation 체크할때 
+		beforeSubmit: function () {
+			alert("데이터 전송전 호출");
+		},
+		success: function (responseText) {
+			alert("데이터 전송 성공");
+			$("input[type='file']").val("")
+		},
+		error: function () {
+			alert("파일 업로드시 에러 발생");
+		}
+	});
+</script>
+</body>
+</html>

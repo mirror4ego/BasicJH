@@ -1,0 +1,34 @@
+<!-- 
+	Math.random() // 0.0~1.0 랜덤값 반환
+	Math.floor() // 소수점버림
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var pop;
+	function start() {
+		pop = window.open("", "myPop", "width=100, height=100");
+		movePop();
+	}
+	
+	function movePop() {
+		var top = Math.floor(Math.random()*screen.height)+1;
+		var left = Math.floor(Math.random()*screen.width)+1;
+		pop.moveTo(top, left);
+		timer = setTimeout(movePop, 1);
+	}
+	
+	function stop() {
+		clearTimeout(timer);
+	}
+	
+</script>
+</head>
+<body>
+<button onclick="start()">시작</button>
+<button onclick="stop()">중지</button>
+</body>
+</html>

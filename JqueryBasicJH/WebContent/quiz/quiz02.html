@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="/jquery-basic/js/jquery-3.1.0.js"></script>
+<style>
+	div { width: 300px;}
+	td { font-size: 5px; overflow: inherit; }
+	
+	.content_display {
+		height: 300px;
+		width: 300px;
+		overflow: hidden;
+		postion: relative;
+	}
+	
+	.content {
+		height: 300px;
+		width: 1200px;
+		position: relative;
+	}
+	
+	.content div {
+		float: left;
+		height: 300px;
+		overflow: auto;
+	}
+	
+</style>
+</head>
+<body>
+<div class="top">
+	<div class="list_title">
+		뉴스목록
+	</div>
+	<div class="page">
+		<span></span>
+		<button>◀</button>
+		<button>▶</button>
+	</div>
+</div>
+<hr>
+<div class="content_display">
+	<div class="content">
+	</div>
+</div>
+
+<script>
+var intervalObj;
+var intervalyn=0;
+var divCnt;
+
+$(function() {
+	$.ajax({
+		url: "/jquery-basic/ajax/quiz01"
+	})
+	.done(function (msg) {
+		$(".content").html(msg);
+		divCnt = $(".page2").length -1;
+		$('span').html((index+1) + '/' + (divCnt+1));
+	})
+	.fail(function (jqXHR, textStatus, errorText) {
+		alert("에러발생 : " + errorText)
+	});
+	
+	intervalObj = setInterval(function () {
+		if (index == 3) index = 0;
+		else index++;
+		moveSlider(index);
+	}, 2000)
+	
+	intervalyn=1;
+});
+
+$('.content_display').mouseenter( function () {
+	if  (intervalyn == 1) {
+		clearInterval(intervalObj);
+		intervalyn = 0;
+	}
+});
+
+$('.content_display').mouseleave( function () {
+	intervalObj = setInterval(function () {
+		if (index == 3) index = 0;
+		else index++;
+		moveSlider(index);
+	}, 2000)
+	intervalyn = 1;
+});
+
+var index = 0;
+function moveSlider(index) {
+	var move = -(index * 300);
+	$('span').html((index+1) + '/' + (divCnt+1));
+	$('.content').animate({left: move}, 'slow');
+}
+
+$("button:first").click(function () {
+	if (index == 0) index = divCnt;
+	else index--;
+	moveSlider(index);
+})
+
+$("button:last").click(function () {
+	if (index == divCnt) index = 0;
+	else index++;
+	moveSlider(index);
+})
+</script>
+</body>
+</html>

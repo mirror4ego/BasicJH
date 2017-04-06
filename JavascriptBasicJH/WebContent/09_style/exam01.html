@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 onclick="changeCss()">CSS 적용하기</h1>
+	<script>
+		function changeCss() {
+			var h1Obj = document.querySelector("h1");
+			alert("태투리선");
+			h1Obj.style.border = "5px solid black";
+			alert("글자색");
+			h1Obj.style.color = "tomato";
+			alert("배경색");
+			h1Obj.style.background = "#334455";
+			alert("안쪽여백");
+			h1Obj.style.padding = "30px";
+			alert("바깥쪽여백");
+			h1Obj.style.margin = "30px";
+			alert("높이");
+			h1Obj.style.height = "100px";
+			alert("테투리 둥굴게");
+			h1Obj.style.borderRadius = "30px";
+			alert("내용을 가운데");
+			h1Obj.style.textAlign = "center";
+			alert("세로정렬");
+			h1Obj.style.lineHeight = "100px";
+		}
+	</script>
+</body>
+</html>

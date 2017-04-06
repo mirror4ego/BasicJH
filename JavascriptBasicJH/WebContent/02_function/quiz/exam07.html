@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+	div {
+		width: 100%;
+		text-align : center;
+		vertical-align : middle;
+		background: gray;
+	}
+	
+	button {
+		width: 200px; height: 100px;
+		background-color: orange;
+		font-size: 20px;
+	}
+	
+	h1 {
+		background-color: black;
+		color: white;
+	}
+	
+</style>
+</head>
+<body>
+<div>
+<button onclick="startTime()">시작</button>
+<button onclick="stopTime()">정지</button>
+<h1 id="time"></h1>
+</div>
+<script>
+
+	var timer;
+	
+	function showTime() {
+		var currentDate = new Date();
+		var time = document.getElementById("time");
+		time.innerHTML = currentDate.toLocaleTimeString();
+	}
+	
+	function startTime() {
+		if (!timer) {
+			timer = setInterval(showTime, 1000);			
+		}
+	}
+	
+	function stopTime() {
+		clearInterval(timer);
+		timer='';
+	}
+	
+	startTime();
+
+	
+	
+	
+</script>
+
+</body>
+</html>

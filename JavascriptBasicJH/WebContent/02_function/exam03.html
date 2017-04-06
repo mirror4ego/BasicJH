@@ -1,0 +1,35 @@
+<!-- 
+	함수는 오버로딩이 지원되지 않는다.
+	덮어쓰기 방식으로 처리됨
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<script>
+	var func = function() {
+		console.log("0");
+	}
+	func();
+	
+	fuction func () {
+		console.log("1");				
+	}
+	func();
+	
+	fuction func () {
+		console.log("2");				
+	}
+	func();
+	
+	fuction func (num, num2, num3) {
+		console.log("3");				
+	}
+	func(100, 200, 300);
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var pop;
+	function createPop() {
+		pop = window.open("", "", "width=400, height=400");
+	}
+	function movePop() {
+		//절대좌표이동
+// 		pop.moveTo(200, 200);
+		
+		//상대좌표이동
+		pop.moveBy(50, 50);
+	}
+	
+	function resizePop() {
+		// 절대크기로 변경
+// 		pop.resizeTo(800, 800);
+		
+		// 상대크기로 변경
+// 		pop.resizeBy(100, 100);
+		
+		pop.resizeTo(screen.width, screen.height);
+	}
+</script>
+</head>
+<body>
+	<button onclick="createPop();">팝업 생성</button>
+	<button onclick="movePop();">팝업 이동</button>
+	<button onclick="resizePop();">팝업 사이즈 변경</button>
+</body>
+</html>

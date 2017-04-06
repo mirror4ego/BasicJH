@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.container { width: 550px; }
+	table, th, td { padding-top: 5px; padding-bottom: 5px; border-collapse: seperate; border-spacing: 10px; }
+	th { background-color: lightgray; text-align: left; width: 130px; }
+	input { border: none; border-bottom: 2px solid black; }
+	input[name="address"] { width: 350px; }
+</style>
+</head>
+<body>
+<div class="container">
+	<h2>회원 정보 입력하기</h2>
+	<hr />
+	<form action="">
+	<div>
+		<table>
+			<tr>
+				<th>아이디</th>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<th>비밀번호</th>
+				<td><input type="password"></td>
+			</tr>
+			<tr>
+				<th>비밀번호 확인</th>
+				<td><input type="password"></td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<th>전화번호</th>
+				<td><input type="text"> (숫자만 입력하세요)</td>
+			</tr>
+			<tr>
+				<th>주소</th>
+				<td><input type="text" name="address"></td>
+			</tr>
+		</table>
+	</div>
+	<hr />
+	<div id="button" align="center">
+		<button type="submit">등록하기</button>
+		<button type="reset">새로쓰기</button>
+	</div>
+	</form>
+</div>
+</body>
+</html>

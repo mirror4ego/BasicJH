@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width: 900px;
+		height: 300px;
+		border: 2px solid red;
+		font-size: 50px;
+	}
+</style>
+</head>
+<body>
+<h1>이미지를 드래그 하세요</h1>
+<br>
+<div id="div1" 	ondragover ="return false;" ondrop="imgDrop(event);">
+<img id="img1" width="300" height="180" draggable="true" src="pic1.jpg" ondragstart="imgDragStart(event);"/>
+<img id="img2" width="300" height="180" draggable="true" src="pic2.jpg" ondragstart="imgDragStart(event);"/>
+</div>
+<div id="div2" ondragover  = "return false;" ondrop = "imgDrop(event);"></div>
+
+<script>
+function imgDragStart(event) {
+	var dragId = event.target.id;
+	event.dataTransfer.setData("imgId", event.target.id);
+}
+
+function imgDrop(event) {
+	if (event.target.nodeName == 'IMG') return;
+	var dropId = event.target.id;
+	var imgId = event.dataTransfer.getData("imgId");
+	event.target.appendChild(document.querySelector("#" + imgId));
+}
+</script>
+</body>
+</html>

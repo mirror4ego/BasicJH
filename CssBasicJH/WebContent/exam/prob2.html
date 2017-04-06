@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>달력</title>
+<style type="text/css">
+		
+	.container {
+		position: relative;
+		width: 750px;
+		padding: 10px;
+		padding-top: 20px;
+		margin: 0 auto;
+	}
+	
+	.year {
+		position: absolute;
+		left: 20px; 
+	}
+	
+	.monthimage {
+		align: center;
+	}
+	
+	table {
+		border-collapse: collapse; 
+		border: 1px solid gray;
+		margin: 0 auto;
+	}
+	
+	td, th {
+		border: 1px solid gray;
+	}
+	
+	td{
+		height: 100px;
+		width: 100px;
+		vertical-align: top;
+		font-size: 10px;
+	}
+	
+	th{
+		background: lightgray;	
+	}
+	.sunday {
+		background: crimson;
+	}
+
+	.saturday {
+		background: skyblue;
+	}
+	
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="year">
+		<img src="calendar/2015.gif">
+	</div>
+	<div class="month">
+		<center>
+		<img class="monthimage" src="calendar/schedule_ic.gif">
+		<img class="monthimage" src="calendar/schedule_10.gif">
+		<img class="monthimage" src="calendar/schedule_ic02.gif">
+		</center>
+	</div>
+<table>
+	<tr class="day">
+		<th class="sunday">일요일</th>
+		<th>월요일</th>
+		<th>화요일</th>
+		<th>수요일</th>
+		<th>목요일</th>
+		<th>금요일</th>
+		<th class="saturday">토요일</th>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>1</td>
+		<td>2</td>
+		<td class="holiday"><img src="calendar/icon_closureday.gif"><br>개천절</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td class="holiday"><img src="calendar/icon_closureday.gif"><br>정기휴관일</td>
+		<td>6</td>
+		<td>7</td>
+		<td>8</td>
+		<td class="holiday"><img src="calendar/icon_closureday.gif"><br>한글날</td>
+		<td>10</td>
+	</tr>
+	<tr>
+		<td>11</td>
+		<td class="holiday"><img src="calendar/icon_closureday.gif"><br>정기휴관일</td>
+		<td>13</td>
+		<td>14</td>
+		<td>15</td>
+		<td>16</td>
+		<td>17</td>
+	</tr>
+	<tr>
+		<td>18</td>
+		<td class="holiday"><img src="calendar/icon_closureday.gif"><br>정기휴관일</td>
+		<td>20</td>
+		<td>21</td>
+		<td>22</td>
+		<td>23</td>
+		<td>24</td>
+	</tr>
+	<tr>
+		<td>25</td>
+		<td class="holiday"><img src="calendar/icon_closureday.gif"><br>정기휴관일</td>
+		<td>27</td>
+		<td>28</td>
+		<td>29</td>
+		<td>30</td>
+		<td>31</td>
+	</tr>
+</table>
+</div>
+</body>
+</html>
