@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="JavaBasicJH/data"/>
+	<classpathentry excluding="day16/exam/" kind="src" path="JavaBasicJH/src"/>
+	<classpathentry kind="src" path="JavaBasicJH/src/day16/exam"/>
+	<classpathentry kind="src" path="JavascriptBasicJH/src"/>
+	<classpathentry kind="src" path="JdbcBasicJH/result"/>
+	<classpathentry kind="src" path="JdbcBasicJH/src"/>
+	<classpathentry kind="src" path="JqueryBasicJH/src"/>
+	<classpathentry kind="src" path="MybatisBasicJH/src"/>
+	<classpathentry kind="src" path="NetworkBasicJH/src"/>
+	<classpathentry kind="lib" path="JavascriptBasicJH/WebContent/WEB-INF/lib/cos-05Nov2002.jar"/>
+	<classpathentry kind="lib" path="JavascriptBasicJH/WebContent/WEB-INF/lib/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="JavascriptBasicJH/WebContent/WEB-INF/lib/mybatis-3.2.8.jar"/>
+	<classpathentry kind="lib" path="JavascriptBasicJH/WebContent/WEB-INF/lib/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="JdbcBasicJH/lib/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="JqueryBasicJH/WebContent/WEB-INF/lib/cos-05Nov2002.jar"/>
+	<classpathentry kind="lib" path="JqueryBasicJH/WebContent/WEB-INF/lib/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="JqueryBasicJH/WebContent/WEB-INF/lib/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="JqueryBasicJH/WebContent/WEB-INF/lib/mybatis-3.2.8.jar"/>
+	<classpathentry kind="lib" path="JqueryBasicJH/WebContent/WEB-INF/lib/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="MybatisBasicJH/lib/mybatis-3.2.8.jar"/>
+	<classpathentry kind="lib" path="MybatisBasicJH/lib/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="NetworkBasicJH/lib/gson-2.7.jar"/>
+	<classpathentry kind="lib" path="NetworkBasicJH/lib/mybatis-3.2.8.jar"/>
+	<classpathentry kind="lib" path="NetworkBasicJH/lib/ojdbc14.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="JavascriptBasicJH/build/classes"/>
+</classpath>
