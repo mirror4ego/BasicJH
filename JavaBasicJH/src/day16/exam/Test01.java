@@ -1,8 +1,4 @@
-package day16.exam;
-
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -29,7 +25,7 @@ class Data{
 public class Test01 {
 	public static void main(String[] args) throws IOException {
 		ArrayList<Data> list = new ArrayList<>();
-		File f = new File("src/day16/exam/person.txt");
+		File f = new File("JavaBasicJH/src/day16/exam/person.txt");
 		Scanner sc1 = new Scanner(f);
 		while (sc1.hasNextLine()) {
 			String[] arr = sc1.nextLine().split(":");
@@ -41,7 +37,7 @@ public class Test01 {
 		
 		Scanner sc2 = new Scanner(System.in);
 		int no;
-		PrintWriter pr = new PrintWriter("src/day16/exam/searchResult.txt");
+		PrintWriter pr = new PrintWriter("JavaBasicJH/src/day16/exam/searchResult.txt");
 		outer : while(true) {
 			System.out.print("항목을 선택하세요.(1.지역명 2.이름 3.종료):");
 			try {

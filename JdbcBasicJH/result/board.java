@@ -1,3 +1,5 @@
+
+
 public class board {
 	private int no;
 	private String title;
