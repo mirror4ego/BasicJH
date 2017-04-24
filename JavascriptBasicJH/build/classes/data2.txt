@@ -1,4 +1,0 @@
-WindDirection
-wind Speed
-temPerature
-Humidity!
