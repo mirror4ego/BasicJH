@@ -1,0 +1,4 @@
+1조:java-30:sql-59:jsp-89
+2조:java-69:sql-59:jsp-100
+3조:java-66:sql-59:jsp-89
+4조:java-100:sql-87:jsp-45

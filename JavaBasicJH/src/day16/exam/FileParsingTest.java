@@ -1,4 +1,3 @@
-package day16.exam;
 
 import java.io.FileNotFoundException;
 
